@@ -1,0 +1,68 @@
+import React from 'react';
+import { Github, Linkedin, Twitter } from 'lucide-react';
+
+const SpeakerSection: React.FC = () => {
+  return (
+    <section id="speakers" className="py-20 bg-white">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-secondary-900 mb-4">Meet Your Expert Speaker</h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Learn from an industry leader who is shaping the future of AI technology
+          </p>
+        </div>
+
+        <div className="max-w-2xl mx-auto">
+          <div className="bg-white border border-gray-100 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 animate-fade-in">
+            <div className="relative h-80 overflow-hidden bg-gray-100">
+              <img 
+                src="https://images.pexels.com/photos/3771807/pexels-photo-3771807.jpeg?auto=compress&cs=tinysrgb&w=600" 
+                alt="Dr. Sarah Chen"
+                className="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-105"
+              />
+            </div>
+            <div className="p-8">
+              <h3 className="text-2xl font-semibold text-secondary-900 mb-2">Dr. Sarah Chen</h3>
+              <div className="text-primary-500 font-medium mb-3">Chief AI Officer at TechFusion Inc.</div>
+              <p className="text-gray-700 mb-6 text-lg">
+                Dr. Chen is a pioneering researcher in artificial intelligence with over 15 years of experience in machine learning and natural language processing. She has led groundbreaking projects at major tech companies and has been instrumental in developing practical AI applications that are used by millions today. Her work focuses on making AI more accessible and beneficial for businesses of all sizes.
+              </p>
+              
+              <div className="flex space-x-4">
+                <a href="#" className="text-gray-500 hover:text-primary-500 transition-colors">
+                  <Twitter size={20} />
+                </a>
+                <a href="#" className="text-gray-500 hover:text-primary-500 transition-colors">
+                  <Linkedin size={20} />
+                </a>
+                <a href="#" className="text-gray-500 hover:text-primary-500 transition-colors">
+                  <Github size={20} />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-12 bg-gray-50 rounded-xl p-8">
+            <h4 className="text-xl font-semibold text-secondary-900 mb-4">What You'll Learn</h4>
+            <ul className="space-y-4">
+              {[
+                'Understanding the latest breakthroughs in AI technology',
+                'Practical strategies for implementing AI in your business',
+                'Future trends and opportunities in artificial intelligence',
+                'Real-world case studies and success stories',
+                'Best practices for responsible AI adoption'
+              ].map((item, index) => (
+                <li key={index} className="flex items-start">
+                  <span className="text-primary-500 mr-3">•</span>
+                  <span className="text-gray-700">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default SpeakerSection;
