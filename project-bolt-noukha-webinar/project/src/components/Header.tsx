@@ -9,14 +9,13 @@ const Header: React.FC = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const toggleMenu = () => {
-    setIsMenuOpen((prev) => !prev);
-  };
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
+  const navLinks = ['About', 'Speakers', 'Register', 'FAQ'];
 
   return (
     <header
@@ -25,16 +24,16 @@ const Header: React.FC = () => {
       }`}
     >
       <div className="container mx-auto px-4 md:px-6">
-        <div className="flex items-center justify-between">
+        <div className="flex justify-between items-center">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center">
             <BrainCircuit className="h-8 w-8 text-primary-500" />
-            <span className="text-xl font-bold text-white">TechAI Summit</span>
+            <span className="ml-2 text-xl font-bold text-white">TechAI Summit</span>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-6">
-            {['About', 'Speakers', 'Agenda', 'Register', 'FAQ'].map((item) => (
+          <div className="hidden md:flex items-center flex-1 justify-center space-x-6">
+            {navLinks.map((item) => (
               <a
                 key={item}
                 href={`#${item.toLowerCase()}`}
@@ -43,44 +42,42 @@ const Header: React.FC = () => {
                 {item}
               </a>
             ))}
-            <a
-              href="#register"
-              className="ml-4 bg-primary-500 text-white px-4 py-2 rounded-md hover:bg-primary-600 transition-colors font-medium"
-            >
-              Register Now
-            </a>
-          </nav>
+          </div>
 
-          {/* Mobile Menu Toggle */}
+          {/* Register Button (desktop) */}
+          <div className="hidden md:block">
+            <button className="bg-primary-500 text-white px-4 py-2 rounded-md hover:bg-primary-600 transition-colors">
+              Register Now
+            </button>
+          </div>
+
+          {/* Mobile Menu Button */}
           <button
             className="md:hidden text-white focus:outline-none"
             onClick={toggleMenu}
             aria-label="Toggle menu"
           >
-            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden mt-4 animate-fade-in">
-            <nav className="flex flex-col space-y-4 pb-4 border-t border-white/10 pt-4">
-              {['About', 'Speakers', 'Agenda', 'Register', 'FAQ'].map((item) => (
+          <div className="md:hidden mt-4 pb-4 animate-fade-in">
+            <nav className="flex flex-col space-y-4">
+              {navLinks.map((item) => (
                 <a
                   key={item}
                   href={`#${item.toLowerCase()}`}
+                  className="text-white hover:text-primary-400 transition-colors font-medium py-2"
                   onClick={() => setIsMenuOpen(false)}
-                  className="text-white hover:text-primary-400 transition-colors font-medium"
                 >
                   {item}
                 </a>
               ))}
-              <a
-                href="#register"
-                className="mt-2 bg-primary-500 text-white px-4 py-2 rounded-md hover:bg-primary-600 transition-colors font-medium"
-              >
+              <button className="bg-primary-500 text-white px-4 py-2 rounded-md hover:bg-primary-600 transition-colors">
                 Register Now
-              </a>
+              </button>
             </nav>
           </div>
         )}
