@@ -7,11 +7,7 @@ const Header: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 50);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -19,65 +15,72 @@ const Header: React.FC = () => {
   }, []);
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+    setIsMenuOpen((prev) => !prev);
   };
 
   return (
-    <header 
+    <header
       className={`fixed w-full z-50 transition-all duration-300 ${
         isScrolled ? 'bg-secondary-900 shadow-md py-2' : 'bg-transparent py-4'
       }`}
     >
       <div className="container mx-auto px-4 md:px-6">
-        <div className="flex justify-between items-center">
-          <div className="flex items-center">
+        <div className="flex items-center justify-between">
+          {/* Logo */}
+          <div className="flex items-center space-x-2">
             <BrainCircuit className="h-8 w-8 text-primary-500" />
-            <span className="ml-2 text-xl font-bold text-white">TechAI Summit</span>
+            <span className="text-xl font-bold text-white">TechAI Summit</span>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-6">
+          <nav className="hidden md:flex items-center space-x-6">
             {['About', 'Speakers', 'Agenda', 'Register', 'FAQ'].map((item) => (
-              <a 
-                key={item} 
+              <a
+                key={item}
                 href={`#${item.toLowerCase()}`}
                 className="text-white hover:text-primary-400 transition-colors font-medium"
               >
                 {item}
               </a>
             ))}
-            <button className="bg-primary-500 text-white px-4 py-2 rounded-md hover:bg-primary-600 transition-colors">
+            <a
+              href="#register"
+              className="ml-4 bg-primary-500 text-white px-4 py-2 rounded-md hover:bg-primary-600 transition-colors font-medium"
+            >
               Register Now
-            </button>
+            </a>
           </nav>
 
-          {/* Mobile Menu Button */}
-          <button 
+          {/* Mobile Menu Toggle */}
+          <button
             className="md:hidden text-white focus:outline-none"
             onClick={toggleMenu}
             aria-label="Toggle menu"
           >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 animate-fade-in">
-            <nav className="flex flex-col space-y-4">
+          <div className="md:hidden mt-4 animate-fade-in">
+            <nav className="flex flex-col space-y-4 pb-4 border-t border-white/10 pt-4">
               {['About', 'Speakers', 'Agenda', 'Register', 'FAQ'].map((item) => (
-                <a 
-                  key={item} 
+                <a
+                  key={item}
                   href={`#${item.toLowerCase()}`}
-                  className="text-white hover:text-primary-400 transition-colors font-medium py-2"
                   onClick={() => setIsMenuOpen(false)}
+                  className="text-white hover:text-primary-400 transition-colors font-medium"
                 >
                   {item}
                 </a>
               ))}
-              <button className="bg-primary-500 text-white px-4 py-2 rounded-md hover:bg-primary-600 transition-colors">
+              <a
+                href="#register"
+                className="mt-2 bg-primary-500 text-white px-4 py-2 rounded-md hover:bg-primary-600 transition-colors font-medium"
+              >
                 Register Now
-              </button>
+              </a>
             </nav>
           </div>
         )}
