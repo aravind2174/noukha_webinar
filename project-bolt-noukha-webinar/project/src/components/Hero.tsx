@@ -17,13 +17,52 @@ const Hero: React.FC<HeroProps> = ({ webinarDate }) => {
 
   return (
     <section id="about" className="relative pt-20 overflow-hidden">
-      <div className="absolute inset-0 bg-secondary-900 z-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-secondary-900 to-secondary-900/90 z-10"></div>
-        <div className="absolute inset-0 opacity-20 z-0">
-          <div className="h-full w-full bg-[radial-gradient(#179E42_1px,transparent_1px)] [background-size:20px_20px]"></div>
+      {/* Enhanced layered gradient background */}
+      <div className="absolute inset-0 z-0">
+        {/* Base gradient */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              'linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%)',
+            zIndex: 0,
+          }}
+        />
+
+        {/* Overlay radial gradients for color pops */}
+        <div
+          className="absolute inset-0 opacity-70"
+          style={{
+            background:
+              'radial-gradient(circle at top right, #38b2ac 20%, transparent 60%), radial-gradient(circle at bottom left, #81e6d9 30%, transparent 70%)',
+            mixBlendMode: 'screen',
+            zIndex: 1,
+          }}
+        />
+
+        {/* Radial dot pattern */}
+        <div className="absolute inset-0 opacity-20">
+          <div
+            className="h-full w-full"
+            style={{
+              background:
+                'radial-gradient(#179E42 1px, transparent 1px)',
+              backgroundSize: '20px 20px',
+            }}
+          />
         </div>
+
+        {/* Soft light flare in center */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              'radial-gradient(circle at center, rgba(255, 255, 255, 0.12), transparent 80%)',
+            zIndex: 2,
+          }}
+        />
       </div>
-      
+
       <div className="container mx-auto px-4 py-20 md:py-32 relative z-20">
         <div className="max-w-3xl mx-auto md:mx-0">
           <div className="animate-fade-in">
