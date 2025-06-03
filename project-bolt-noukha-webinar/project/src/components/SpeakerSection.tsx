@@ -22,10 +22,11 @@ const SpeakerSection: React.FC = () => {
               />
             </div>
             <div className="p-8">
-              <h3 className="text-2xl font-semibold text-secondary-900 mb-2">Dr. Sarah Chen</h3>
-              <div className="text-primary-500 font-medium mb-3">Chief AI Officer at TechFusion Inc.</div>
+              <h3 className="text-2xl font-semibold text-secondary-900 mb-2">Ramanathan Alagappan</h3>
+              <div className="text-primary-500 font-medium mb-3">Founder of Noukha Technologies</div>
               <p className="text-gray-700 mb-6 text-lg">
-                Dr. Chen is a pioneering researcher in artificial intelligence with over 15 years of experience in machine learning and natural language processing. She has led groundbreaking projects at major tech companies and has been instrumental in developing practical AI applications that are used by millions today. Her work focuses on making AI more accessible and beneficial for businesses of all sizes.
+                Ramanathan Alagappan, also known as Ram, is the founder of Noukha Technologies, a tech company started in 2024. Ram also loves to teach. He shares his knowledge with students and young professionals through events like TechFusionX, where he gives workshops and helps future engineers learn by doing.
+Join this webinar to learn from Ram’s real experience and simple ideas that can help you use technology to grow your business.
               </p>
               
               <div className="flex space-x-4">
