@@ -16,7 +16,7 @@ const SpeakerSection: React.FC = () => {
           <div className="bg-white border border-gray-100 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 animate-fade-in">
             <div className="relative h-80 overflow-hidden bg-gray-100">
               <img 
-                src="https://images.pexels.com/photos/3771807/pexels-photo-3771807.jpeg?auto=compress&cs=tinysrgb&w=600" 
+                src="https://media.licdn.com/dms/image/v2/C5603AQFgt_AwglQ4-g/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1620322854177?e=1754524800&v=beta&t=Y19kZ4m9yTL1jMLhvwN0iJ2N5zgbAtziz3KHbaO7iiI" 
                 alt="Dr. Sarah Chen"
                 className="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-105"
               />
