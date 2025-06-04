@@ -4,32 +4,32 @@ import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 const galleryImages = [
   {
     id: 1,
-    url: "https://images.pexels.com/photos/7092613/pexels-photo-7092613.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    url: "https://media.licdn.com/dms/image/v2/D5622AQFQD962waik6g/feedshare-shrink_2048_1536/B56Za5eGddGsAo-/0/1746868398642?e=1752105600&v=beta&t=HI_ldFLynmwEvHnwN_zMsTKDXrEVMcuZXd5cN-jCQjM",
     title: "AI Workshop 2024",
   },
   {
     id: 2,
-    url: "https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    url: "https://media.licdn.com/dms/image/v2/D5622AQFQD962waik6g/feedshare-shrink_2048_1536/B56Za5eGddGsAo-/0/1746868398642?e=1752105600&v=beta&t=HI_ldFLynmwEvHnwN_zMsTKDXrEVMcuZXd5cN-jCQjM",
     title: "Startup Meetup",
   },
   {
     id: 3,
-    url: "https://images.pexels.com/photos/1181395/pexels-photo-1181395.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    url: "https://media.licdn.com/dms/image/v2/D5622AQFQD962waik6g/feedshare-shrink_2048_1536/B56Za5eGddGsAo-/0/1746868398642?e=1752105600&v=beta&t=HI_ldFLynmwEvHnwN_zMsTKDXrEVMcuZXd5cN-jCQjM",
     title: "Tech Conference Panel",
   },
   {
     id: 4,
-    url: "https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    url: "https://media.licdn.com/dms/image/v2/D5622AQFQD962waik6g/feedshare-shrink_2048_1536/B56Za5eGddGsAo-/0/1746868398642?e=1752105600&v=beta&t=HI_ldFLynmwEvHnwN_zMsTKDXrEVMcuZXd5cN-jCQjM",
     title: "Student Project Showcase",
   },
   {
     id: 5,
-    url: "https://images.pexels.com/photos/1181622/pexels-photo-1181622.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    url: "https://media.licdn.com/dms/image/v2/D5622AQFQD962waik6g/feedshare-shrink_2048_1536/B56Za5eGddGsAo-/0/1746868398642?e=1752105600&v=beta&t=HI_ldFLynmwEvHnwN_zMsTKDXrEVMcuZXd5cN-jCQjM",
     title: "Coding Bootcamp",
   },
   {
     id: 6,
-    url: "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    url: "https://media.licdn.com/dms/image/v2/D5622AQFQD962waik6g/feedshare-shrink_2048_1536/B56Za5eGddGsAo-/0/1746868398642?e=1752105600&v=beta&t=HI_ldFLynmwEvHnwN_zMsTKDXrEVMcuZXd5cN-jCQjM",
     title: "AI Innovation Hackathon",
   },
 ];
