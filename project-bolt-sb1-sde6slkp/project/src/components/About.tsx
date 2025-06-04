@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrainCircuit, Lightbulb, Rocket, Trophy } from 'lucide-react';
+import { BrainCog, FolderKanban, Rocket, Sparkles } from 'lucide-react';
 
 const About = () => {
   return (
@@ -8,53 +8,52 @@ const About = () => {
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">About The Webinar</h2>
           <p className="text-lg text-gray-700">
-            Join us for an inspiring and educational webinar that bridges the gap between AI technology and entrepreneurial opportunity. 
-            Perfect for students looking to elevate their skills and stand out in today's competitive tech landscape.
+            Explore how AI is transforming the startup world and what students must know to thrive. This webinar blends innovation, real-world strategy, and career insight—perfect for anyone looking to make waves in tech.
           </p>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 transform hover:-translate-y-1">
             <div className="w-14 h-14 bg-[#179E42]/10 rounded-lg flex items-center justify-center mb-6">
-              <BrainCircuit className="w-8 h-8 text-[#179E42]" />
+              <BrainCog className="w-8 h-8 text-[#179E42]" />
             </div>
-            <h3 className="text-xl font-bold mb-3">AI Fundamentals</h3>
+            <h3 className="text-xl font-bold mb-3">AI + Startups Simplified</h3>
             <p className="text-gray-600">
-              Learn core AI concepts, tools, and frameworks that are driving innovation in the startup ecosystem.
+              Understand how AI is reshaping startups and what every student should know before diving into tech.
             </p>
           </div>
-          
+
           <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 transform hover:-translate-y-1">
             <div className="w-14 h-14 bg-[#179E42]/10 rounded-lg flex items-center justify-center mb-6">
-              <Lightbulb className="w-8 h-8 text-[#179E42]" />
+              <FolderKanban className="w-8 h-8 text-[#179E42]" />
             </div>
-            <h3 className="text-xl font-bold mb-3">Project Ideas</h3>
+            <h3 className="text-xl font-bold mb-3">Build Smart, Impress Big</h3>
             <p className="text-gray-600">
-              Discover exciting AI project ideas that can help build your portfolio and attract attention from employers.
+              Get practical AI project ideas that showcase your skills and actually make an impact.
             </p>
           </div>
-          
+
           <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 transform hover:-translate-y-1">
             <div className="w-14 h-14 bg-[#179E42]/10 rounded-lg flex items-center justify-center mb-6">
               <Rocket className="w-8 h-8 text-[#179E42]" />
             </div>
-            <h3 className="text-xl font-bold mb-3">Startup Strategy</h3>
+            <h3 className="text-xl font-bold mb-3">From Code to Company</h3>
             <p className="text-gray-600">
-              Learn how to transform your AI projects into viable startup ventures with practical business strategies.
+              Explore how to turn your AI projects into real-world startups with actionable strategy.
             </p>
           </div>
-          
+
           <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 transform hover:-translate-y-1">
             <div className="w-14 h-14 bg-[#179E42]/10 rounded-lg flex items-center justify-center mb-6">
-              <Trophy className="w-8 h-8 text-[#179E42]" />
+              <Sparkles className="w-8 h-8 text-[#179E42]" />
             </div>
-            <h3 className="text-xl font-bold mb-3">Stand Out</h3>
+            <h3 className="text-xl font-bold mb-3">Make Your Mark</h3>
             <p className="text-gray-600">
-              Techniques to differentiate yourself in the job market and startup scene using your AI expertise.
+              Learn how to stand out in internships, jobs, and pitch rooms by combining AI with entrepreneurial thinking.
             </p>
           </div>
         </div>
-        
+
         <div className="mt-16 md:mt-24 bg-black rounded-xl p-8 md:p-12 flex flex-col md:flex-row items-center">
           <div className="md:w-2/3 md:pr-8 mb-8 md:mb-0">
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">What You'll Take Away</h2>
