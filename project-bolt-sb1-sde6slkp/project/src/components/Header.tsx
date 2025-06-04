@@ -30,8 +30,8 @@ const Header = () => {
           />
         </a>
 
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center justify-center flex-1 space-x-10">
+        {/* Desktop Navigation + Register Button */}
+        <div className="hidden md:flex items-center justify-end space-x-8 flex-shrink-0">
           <a href="#about" className="font-medium hover:text-[#179E42] transition-colors">
             About
           </a>
@@ -41,10 +41,7 @@ const Header = () => {
           <a href="#gallery" className="font-medium hover:text-[#179E42] transition-colors">
             Gallery
           </a>
-        </div>
 
-        {/* Register Button (Desktop) */}
-        <div className="hidden md:block">
           <a
             href="#register"
             className="font-medium text-white bg-[#179E42] px-4 py-2 rounded-md hover:bg-[#0f7a31] transition-colors"
