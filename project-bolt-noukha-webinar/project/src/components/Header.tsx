@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, BrainCircuit } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -27,12 +27,15 @@ const Header: React.FC = () => {
         <div className="flex justify-between items-center">
           {/* Logo */}
           <div className="flex items-center">
-            <BrainCircuit className="h-8 w-8 text-primary-500" />
-            <span className="ml-2 text-xl font-bold text-white">TechAI Summit</span>
+            <img
+              src="https://noukha.in/static/media/noukha-long-logo.487144d20514b2920304.png"
+              alt="Noukha Logo"
+              className="h-8 w-auto"
+            />
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center flex-1 justify-center space-x-6">
+          <div className="hidden md:flex items-center flex-1 justify-center space-x-10">
             {navLinks.map((item) => (
               <a
                 key={item}
