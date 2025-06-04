@@ -3,12 +3,12 @@ import { Mail, PhoneCall } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white py-12">
+    <footer className="bg-black text-white py-12">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center mb-8">
           <div className="flex items-center mb-6 md:mb-0">
             <img
-              src="https://noukha.in/static/media/noukha-long-logo.487144d20514b2920304.png"
+              src="https://noukha.in/static/media/logo.78884cb809355cdfb5dc.png"
               alt="Noukha Logo"
               className="h-8 md:h-10"
             />
