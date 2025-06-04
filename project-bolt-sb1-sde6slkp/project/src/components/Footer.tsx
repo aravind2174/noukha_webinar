@@ -1,14 +1,17 @@
 import React from 'react';
-import { Code2, Mail, PhoneCall } from 'lucide-react';
+import { Mail, PhoneCall } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-white py-12">
+    <footer className="bg-gray-900 text-white py-12">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center mb-8">
           <div className="flex items-center mb-6 md:mb-0">
-            <Code2 className="h-8 w-8 text-[#179E42]" />
-            <span className="ml-2 font-bold text-xl">AI&StartupHub</span>
+            <img
+              src="https://noukha.in/static/media/noukha-long-logo.487144d20514b2920304.png"
+              alt="Noukha Logo"
+              className="h-8 md:h-10"
+            />
           </div>
           
           <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8">
