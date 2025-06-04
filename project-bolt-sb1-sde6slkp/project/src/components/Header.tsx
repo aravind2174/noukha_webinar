@@ -20,20 +20,15 @@ const Header = () => {
         isScrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'
       }`}
     >
-      <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
-        {/* Logo and Title Container */}
-        <div className="flex items-center space-x-4">
-          <a href="/" className="flex-shrink-0">
-            <img
-              src="https://noukha.in/static/media/noukha-long-logo.487144d20514b2920304.png"
-              alt="Noukha Logo"
-              className="h-8 md:h-10"
-            />
-          </a>
-          <h1 className="text-sm md:text-base font-semibold text-gray-800 max-w-xs md:max-w-none">
-            AI & Startups: What Every Student Should Know (and Build) Before Entering the Tech World
-          </h1>
-        </div>
+      <div className="container mx-auto px-4 flex flex-row items-center justify-between">
+        {/* Logo */}
+        <a href="/" className="flex-shrink-0">
+          <img
+            src="https://noukha.in/static/media/noukha-long-logo.487144d20514b2920304.png"
+            alt="Noukha Logo"
+            className="h-8 md:h-10"
+          />
+        </a>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center justify-center flex-1 space-x-10">
@@ -60,7 +55,7 @@ const Header = () => {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-gray-900 mt-4 md:mt-0"
+          className="md:hidden text-gray-900"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
