@@ -26,16 +26,16 @@ const Footer = () => {
           <div className="flex items-center space-x-6 mb-6 md:mb-0">
             <a href="mailto:info@aistartup.com" className="flex items-center hover:text-[#179E42] transition-colors">
               <Mail className="h-5 w-5 mr-2" />
-              <span>info@aistartup.com</span>
+              <span>hello@noukha.in</span>
             </a>
             <a href="tel:+1234567890" className="flex items-center hover:text-[#179E42] transition-colors">
               <PhoneCall className="h-5 w-5 mr-2" />
-              <span>+123 456 7890</span>
+              <span>+91 9025078520</span>
             </a>
           </div>
           
           <p className="text-white/60 text-sm">
-            © {new Date().getFullYear()} AI&StartupHub. All rights reserved.
+            © {new Date().getFullYear()} noukhatechnologies. All rights reserved.
           </p>
         </div>
       </div>
