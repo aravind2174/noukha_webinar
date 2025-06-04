@@ -53,15 +53,13 @@ const Speaker = () => {
               
               <div className="mb-8">
                 <p className="text-gray-700 mb-4">
-                  Dr. Alex Johnson is a renowned AI researcher and startup advisor with over 10 years of experience
-                  in the field. He has helped launch multiple successful AI startups and mentored hundreds of
-                  students in their journey from academia to entrepreneurship.
+                  Ramanathan Alagappan is a leading voice in digital innovation and entrepreneurship, known for transforming 
+                  early ideas into scalable tech ventures. With 10+ years of experience and a background in engineering and strategy, 
+                  he has guided numerous students and startups in building future-ready businesses.
                 </p>
                 <p className="text-gray-700">
-                  As the former Head of AI at TechVentures and a Stanford graduate, Alex brings a unique perspective
-                  on how students can leverage AI technologies to build impressive projects and launch successful
-                  startups. His hands-on approach and practical insights have helped many students stand out in
-                  the competitive tech landscape.
+                  As the founder of Noukha Technologies, Ramanathan blends product thinking with growth marketing, making him a go-to mentor 
+                  for students eager to turn their AI-powered ideas into impactful startups.
                 </p>
               </div>
               
