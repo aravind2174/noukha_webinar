@@ -66,19 +66,19 @@ const About = () => {
                 <div className="h-6 w-6 rounded-full bg-[#179E42] flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
                   <span className="text-white text-sm">✓</span>
                 </div>
-                <span>Access to starter code and project templates</span>
+                <span> Starter code and project templates to kick off your own AI builds right after the session</span>
               </li>
               <li className="flex items-start text-gray-300">
                 <div className="h-6 w-6 rounded-full bg-[#179E42] flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
                   <span className="text-white text-sm">✓</span>
                 </div>
-                <span>Curated list of AI resources for continued learning</span>
+                <span>Curated AI tools and resources to continue learning and experimenting with confidence</span>
               </li>
               <li className="flex items-start text-gray-300">
                 <div className="h-6 w-6 rounded-full bg-[#179E42] flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
                   <span className="text-white text-sm">✓</span>
                 </div>
-                <span>Framework for turning projects into startup ideas</span>
+                <span>A practical framework for turning your AI projects into real-world startup ideas</span>
               </li>
             </ul>
           </div>
