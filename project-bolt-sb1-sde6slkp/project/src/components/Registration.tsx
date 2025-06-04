@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Send, Calendar, Clock, CheckCircle } from 'lucide-react';
 
 const Registration = () => {
@@ -9,6 +9,36 @@ const Registration = () => {
     expectation: '',
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [timeLeft, setTimeLeft] = useState<{ days: number; hours: number; minutes: number; seconds: number }>({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
+
+  // Set early bird end date (adjust as needed)
+  const earlyBirdEndDate = new Date('2025-06-10T23:59:59'); // Early bird ends June 10, 2025
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      const now = new Date();
+      const distance = earlyBirdEndDate.getTime() - now.getTime();
+
+      if (distance <= 0) {
+        clearInterval(timer);
+        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+      } else {
+        setTimeLeft({
+          days: Math.floor(distance / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
+          seconds: Math.floor((distance % (1000 * 60)) / 1000),
+        });
+      }
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -20,7 +50,7 @@ const Registration = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real implementation, you would submit this data to your backend
+    // Submit to backend here
     console.log('Form submitted:', formData);
     setIsSubmitted(true);
   };
@@ -32,10 +62,23 @@ const Registration = () => {
           <div className="flex flex-col lg:flex-row items-stretch shadow-xl rounded-xl overflow-hidden">
             <div className="lg:w-1/2 bg-[#179E42] p-8 md:p-12 text-white flex flex-col justify-center">
               <h2 className="text-3xl md:text-4xl font-bold mb-6">Register Now</h2>
-              <p className="text-white/90 text-lg mb-8">
-                Secure your spot for this exclusive webinar and take the first step toward leveraging AI for your future in tech and entrepreneurship.
+              <p className="text-white/90 text-lg mb-6">
+                Secure your spot for this exclusive paid webinar and take the first step toward leveraging AI for your future in tech and entrepreneurship.
               </p>
-              
+
+              {/* Early Bird Pricing */}
+              <div className="mb-8 bg-white/10 p-6 rounded-xl text-center">
+                <h3 className="font-bold text-2xl mb-2">Early Bird Price: ₹99/-</h3>
+                <p className="text-white/80 mb-4">Grab your seat before the offer ends!</p>
+                {timeLeft.days + timeLeft.hours + timeLeft.minutes + timeLeft.seconds > 0 ? (
+                  <div className="text-xl font-mono tracking-wide">
+                    {timeLeft.days}d {timeLeft.hours}h {timeLeft.minutes}m {timeLeft.seconds}s
+                  </div>
+                ) : (
+                  <p className="text-red-400 font-semibold">Early Bird Offer Ended</p>
+                )}
+              </div>
+
               <div className="space-y-6 mb-8">
                 <div className="flex items-start">
                   <Calendar className="w-6 h-6 mr-4 flex-shrink-0 mt-1" />
@@ -44,7 +87,7 @@ const Registration = () => {
                     <p className="text-white/80">Mark your calendar</p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start">
                   <Clock className="w-6 h-6 mr-4 flex-shrink-0 mt-1" />
                   <div>
@@ -53,37 +96,15 @@ const Registration = () => {
                   </div>
                 </div>
               </div>
-              
-              <div className="bg-white/10 p-6 rounded-xl">
-                <h3 className="font-bold text-xl mb-4">What You'll Need</h3>
-                <ul className="space-y-3">
-                  <li className="flex items-start">
-                    <div className="h-6 w-6 rounded-full bg-white/20 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
-                      <span className="text-white text-sm">✓</span>
-                    </div>
-                    <span>A computer with internet connection</span>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="h-6 w-6 rounded-full bg-white/20 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
-                      <span className="text-white text-sm">✓</span>
-                    </div>
-                    <span>Basic understanding of programming (optional)</span>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="h-6 w-6 rounded-full bg-white/20 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
-                      <span className="text-white text-sm">✓</span>
-                    </div>
-                    <span>Curiosity and enthusiasm for AI and startups</span>
-                  </li>
-                </ul>
-              </div>
             </div>
-            
+
             <div className="lg:w-1/2 bg-white p-8 md:p-12">
               {!isSubmitted ? (
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
-                    <label htmlFor="name" className="block text-gray-700 font-medium mb-2">Full Name</label>
+                    <label htmlFor="name" className="block text-gray-700 font-medium mb-2">
+                      Full Name
+                    </label>
                     <input
                       type="text"
                       id="name"
@@ -95,9 +116,11 @@ const Registration = () => {
                       placeholder="Your full name"
                     />
                   </div>
-                  
+
                   <div>
-                    <label htmlFor="email" className="block text-gray-700 font-medium mb-2">Email Address</label>
+                    <label htmlFor="email" className="block text-gray-700 font-medium mb-2">
+                      Email Address
+                    </label>
                     <input
                       type="email"
                       id="email"
@@ -109,9 +132,11 @@ const Registration = () => {
                       placeholder="Your email address"
                     />
                   </div>
-                  
+
                   <div>
-                    <label htmlFor="university" className="block text-gray-700 font-medium mb-2">University/Institution</label>
+                    <label htmlFor="university" className="block text-gray-700 font-medium mb-2">
+                      University/Institution
+                    </label>
                     <input
                       type="text"
                       id="university"
@@ -122,9 +147,11 @@ const Registration = () => {
                       placeholder="Your university or institution"
                     />
                   </div>
-                  
+
                   <div>
-                    <label htmlFor="expectation" className="block text-gray-700 font-medium mb-2">What do you hope to learn?</label>
+                    <label htmlFor="expectation" className="block text-gray-700 font-medium mb-2">
+                      What do you hope to learn?
+                    </label>
                     <textarea
                       id="expectation"
                       name="expectation"
@@ -134,12 +161,12 @@ const Registration = () => {
                       placeholder="I'm interested in learning about..."
                     ></textarea>
                   </div>
-                  
+
                   <button
                     type="submit"
                     className="w-full bg-[#179E42] text-white px-6 py-3 rounded-md font-medium hover:bg-[#0f7a31] transition-colors flex items-center justify-center"
                   >
-                    Register for Webinar <Send className="ml-2 h-5 w-5" />
+                    Register for Webinar ₹99/- <Send className="ml-2 h-5 w-5" />
                   </button>
                 </form>
               ) : (
@@ -149,7 +176,8 @@ const Registration = () => {
                   </div>
                   <h3 className="text-2xl font-bold text-gray-800 mb-4">Registration Successful!</h3>
                   <p className="text-gray-600 mb-6">
-                    Thank you for registering for the AI & Startups webinar. We've sent a confirmation email to <span className="font-semibold">{formData.email}</span>.
+                    Thank you for registering for the AI & Startups webinar. We've sent a confirmation email to{' '}
+                    <span className="font-semibold">{formData.email}</span>.
                   </p>
                   <p className="text-gray-600">
                     You'll receive the webinar link and additional details closer to the event date.
