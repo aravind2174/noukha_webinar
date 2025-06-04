@@ -9,36 +9,27 @@ const Registration = () => {
     expectation: '',
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [timeLeft, setTimeLeft] = useState<{ days: number; hours: number; minutes: number; seconds: number }>({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-  });
-
-  // Set early bird end date (adjust as needed)
-  const earlyBirdEndDate = new Date('2025-06-10T23:59:59'); // Early bird ends June 10, 2025
+  const [timeLeft, setTimeLeft] = useState(1800); // seconds, 30 minutes
 
   useEffect(() => {
     const timer = setInterval(() => {
-      const now = new Date();
-      const distance = earlyBirdEndDate.getTime() - now.getTime();
-
-      if (distance <= 0) {
-        clearInterval(timer);
-        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-      } else {
-        setTimeLeft({
-          days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-          minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
-          seconds: Math.floor((distance % (1000 * 60)) / 1000),
-        });
-      }
+      setTimeLeft((prev) => {
+        if (prev <= 1) {
+          return 1800; // reset to 30 minutes again
+        }
+        return prev - 1;
+      });
     }, 1000);
 
     return () => clearInterval(timer);
   }, []);
+
+  // Convert seconds to mm:ss format
+  const formatTime = (seconds: number) => {
+    const m = Math.floor(seconds / 60);
+    const s = seconds % 60;
+    return `${m.toString().padStart(2, '0')}m ${s.toString().padStart(2, '0')}s`;
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -50,7 +41,6 @@ const Registration = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Submit to backend here
     console.log('Form submitted:', formData);
     setIsSubmitted(true);
   };
@@ -68,15 +58,14 @@ const Registration = () => {
 
               {/* Early Bird Pricing */}
               <div className="mb-8 bg-white/10 p-6 rounded-xl text-center">
-                <h3 className="font-bold text-2xl mb-2">Early Bird Price: ₹99/-</h3>
+                <h3 className="font-bold text-2xl mb-2">
+                  <span className="line-through mr-4 text-gray-300">₹799/-</span>
+                  <span>₹99/-</span>
+                </h3>
                 <p className="text-white/80 mb-4">Grab your seat before the offer ends!</p>
-                {timeLeft.days + timeLeft.hours + timeLeft.minutes + timeLeft.seconds > 0 ? (
-                  <div className="text-xl font-mono tracking-wide">
-                    {timeLeft.days}d {timeLeft.hours}h {timeLeft.minutes}m {timeLeft.seconds}s
-                  </div>
-                ) : (
-                  <p className="text-red-400 font-semibold">Early Bird Offer Ended</p>
-                )}
+                <div className="text-xl font-mono tracking-wide">
+                  {formatTime(timeLeft)}
+                </div>
               </div>
 
               <div className="space-y-6 mb-8">
