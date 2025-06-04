@@ -95,4 +95,10 @@ const Header = () => {
               Register Now
             </a>
           </div>
-        </div
+        </div>
+      )}
+    </header>
+  );
+};
+
+export default Header;
