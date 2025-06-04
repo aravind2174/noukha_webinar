@@ -16,10 +16,10 @@ const Speaker = () => {
           <div className="lg:w-1/3">
             <div className="relative">
               <div className="w-64 h-64 md:w-80 md:h-80 bg-gray-200 rounded-2xl overflow-hidden">
-                {/* Replace with actual speaker image */}
+                {/* Updated speaker image */}
                 <img 
-                  src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
-                  alt="Speaker" 
+                  src="https://media.licdn.com/dms/image/v2/C5603AQFgt_AwglQ4-g/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1620322854177?e=1754524800&v=beta&t=Y19kZ4m9yTL1jMLhvwN0iJ2N5zgbAtziz3KHbaO7iiI" 
+                  alt="Ramanathan Alagappan" 
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -32,8 +32,8 @@ const Speaker = () => {
             <div className="bg-white p-8 rounded-xl shadow-md">
               <div className="flex items-start justify-between mb-6">
                 <div>
-                  <h3 className="text-2xl font-bold">Dr. Alex Johnson</h3>
-                  <p className="text-[#179E42] font-medium">AI Researcher & Startup Advisor</p>
+                  <h3 className="text-2xl font-bold">Ramanathan Alagappan</h3>
+                  <p className="text-[#179E42] font-medium">Founder, Noukha Technologies</p>
                 </div>
                 <div className="flex space-x-3">
                   <a href="#" className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-[#179E42] hover:text-white transition-colors">
