@@ -1,5 +1,5 @@
 import React from 'react';
-import { Github, Linkedin, Globe, Twitter } from 'lucide-react';
+import { Linkedin, Globe } from 'lucide-react';
 
 const Speaker = () => {
   return (
@@ -36,16 +36,22 @@ const Speaker = () => {
                   <p className="text-[#179E42] font-medium">Founder, Noukha Technologies</p>
                 </div>
                 <div className="flex space-x-3">
-                  <a href="#" className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-[#179E42] hover:text-white transition-colors">
+                  <a 
+                    href="https://linkedin.com/in/ramanathan-alagappan" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-[#179E42] hover:text-white transition-colors"
+                    aria-label="LinkedIn"
+                  >
                     <Linkedin size={18} />
                   </a>
-                  <a href="#" className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-[#179E42] hover:text-white transition-colors">
-                    <Twitter size={18} />
-                  </a>
-                  <a href="#" className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-[#179E42] hover:text-white transition-colors">
-                    <Github size={18} />
-                  </a>
-                  <a href="#" className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-[#179E42] hover:text-white transition-colors">
+                  <a 
+                    href="https://noukha.in/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-[#179E42] hover:text-white transition-colors"
+                    aria-label="Website"
+                  >
                     <Globe size={18} />
                   </a>
                 </div>
