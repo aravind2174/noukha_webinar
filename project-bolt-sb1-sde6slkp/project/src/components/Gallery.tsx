@@ -9,27 +9,27 @@ const galleryImages = [
   },
   {
     id: 2,
-    url: "https://media.licdn.com/dms/image/v2/D5622AQFQD962waik6g/feedshare-shrink_2048_1536/B56Za5eGddGsAo-/0/1746868398642?e=1752105600&v=beta&t=HI_ldFLynmwEvHnwN_zMsTKDXrEVMcuZXd5cN-jCQjM",
+    url: "https://res.cloudinary.com/dhn6uszk0/image/upload/v1749115004/img6_e8oxvk.jpg",
     title: "Startup Meetup",
   },
   {
     id: 3,
-    url: "https://media.licdn.com/dms/image/v2/D5622AQFQD962waik6g/feedshare-shrink_2048_1536/B56Za5eGddGsAo-/0/1746868398642?e=1752105600&v=beta&t=HI_ldFLynmwEvHnwN_zMsTKDXrEVMcuZXd5cN-jCQjM",
+    url: "https://res.cloudinary.com/dhn6uszk0/image/upload/v1749115002/img4_bsgmt0.jpg",
     title: "Tech Conference Panel",
   },
   {
     id: 4,
-    url: "https://media.licdn.com/dms/image/v2/D5622AQFQD962waik6g/feedshare-shrink_2048_1536/B56Za5eGddGsAo-/0/1746868398642?e=1752105600&v=beta&t=HI_ldFLynmwEvHnwN_zMsTKDXrEVMcuZXd5cN-jCQjM",
+    url: "https://res.cloudinary.com/dhn6uszk0/image/upload/v1749115002/img3_nioct5.jpg",
     title: "Student Project Showcase",
   },
   {
     id: 5,
-    url: "https://media.licdn.com/dms/image/v2/D5622AQFQD962waik6g/feedshare-shrink_2048_1536/B56Za5eGddGsAo-/0/1746868398642?e=1752105600&v=beta&t=HI_ldFLynmwEvHnwN_zMsTKDXrEVMcuZXd5cN-jCQjM",
+    url: "https://res.cloudinary.com/dhn6uszk0/image/upload/v1749115002/img7_kwtbqg.jpg",
     title: "Coding Bootcamp",
   },
   {
     id: 6,
-    url: "https://media.licdn.com/dms/image/v2/D5622AQFQD962waik6g/feedshare-shrink_2048_1536/B56Za5eGddGsAo-/0/1746868398642?e=1752105600&v=beta&t=HI_ldFLynmwEvHnwN_zMsTKDXrEVMcuZXd5cN-jCQjM",
+    url: "https://res.cloudinary.com/dhn6uszk0/image/upload/v1749115002/img2_svdhf7.jpg",
     title: "AI Innovation Hackathon",
   },
 ];
