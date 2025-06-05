@@ -4,8 +4,8 @@ import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 const galleryImages = [
   {
     id: 1,
-    url: "https://media.licdn.com/dms/image/v2/D5622AQFQD962waik6g/feedshare-shrink_2048_1536/B56Za5eGddGsAo-/0/1746868398642?e=1752105600&v=beta&t=HI_ldFLynmwEvHnwN_zMsTKDXrEVMcuZXd5cN-jCQjM",
-    title: "AI Workshop 2024",
+    url: "https://res.cloudinary.com/dhn6uszk0/image/upload/v1749115002/img1_iptxvk.jpg",
+    title: "StartUp Conference",
   },
   {
     id: 2,
