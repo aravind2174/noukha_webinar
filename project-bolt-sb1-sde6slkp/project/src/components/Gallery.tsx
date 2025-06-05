@@ -14,8 +14,8 @@ const galleryImages = [
   },
   {
     id: 3,
-    url: "https://res.cloudinary.com/dhn6uszk0/image/upload/v1749115002/img4_bsgmt0.jpg",
-    title: "Tech Conference Panel",
+    url: "https://res.cloudinary.com/dhn6uszk0/image/upload/v1749115002/img7_kwtbqg.jpg",
+    title: "Coding BootCamp",
   },
   {
     id: 4,
@@ -24,8 +24,8 @@ const galleryImages = [
   },
   {
     id: 5,
-    url: "https://res.cloudinary.com/dhn6uszk0/image/upload/v1749115002/img7_kwtbqg.jpg",
-    title: "Coding Bootcamp",
+    url: "https://res.cloudinary.com/dhn6uszk0/image/upload/v1749115002/img4_bsgmt0.jpg",
+    title: "Startup Panel Discussion",
   },
   {
     id: 6,
