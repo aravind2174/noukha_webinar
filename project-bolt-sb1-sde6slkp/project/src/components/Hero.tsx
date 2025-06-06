@@ -11,14 +11,15 @@ const Hero = () => {
               <span className="text-sm font-medium text-[#179E42]">Live Webinar • June 15, 2025</span>
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-              <span className="block">AI & Startups:</span>
-              <span className="text-[#179E42] block">
-                Learn, Build, Stand Out
+              <span className="block">How Students Can Build</span>
+              <span className="block">
+                <span className="text-[#179E42]">AI Projects</span> That 
+                <span className="text-[#179E42]"> Stand Out</span>
               </span>
+              <span className="block">in the <span className="text-[#179E42]">Startup World</span></span>
             </h1>
             <p className="text-lg md:text-xl text-gray-700 mb-8">
-              Discover how students can leverage AI to build impressive projects, 
-              launch startups, and distinguish themselves in the tech industry.
+              Learn how to go from idea to execution — build real AI tools, explore startup-grade tech stacks, and showcase projects that grab the attention of recruiters, founders, and investors.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a 
