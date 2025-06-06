@@ -103,12 +103,12 @@ const Hero = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
-              <p className="text-4xl font-bold text-white">3+ Hours</p>
+              <p className="text-4xl font-bold text-white">1 Hour</p>
               <p className="text-[#179E42] mt-2">Of Actionable Content</p>
             </div>
             <div className="text-center">
-              <p className="text-4xl font-bold text-white">10+ Projects</p>
-              <p className="text-[#179E42] mt-2">Showcased & Explained</p>
+              <p className="text-4xl font-bold text-white">Expert Insights</p>
+              <p className="text-[#179E42] mt-2">On AI Project Lifecycle & Tech Stacks</p>
             </div>
             <div className="text-center">
               <p className="text-4xl font-bold text-white">Live Q&A</p>
