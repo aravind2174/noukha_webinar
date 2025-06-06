@@ -9,13 +9,21 @@ const Registration = () => {
     expectation: '',
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(1800); // 30 minutes
+  const [timeLeft, setTimeLeft] = useState(0);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft((prev) => (prev <= 1 ? 1800 : prev - 1));
-    }, 1000);
-    return () => clearInterval(timer);
+    const updateTimer = () => {
+      const now = new Date();
+      const minutes = now.getMinutes();
+      const seconds = now.getSeconds();
+      const elapsed = (minutes % 30) * 60 + seconds;
+      const remaining = 1800 - elapsed;
+      setTimeLeft(remaining);
+    };
+
+    updateTimer(); // initial call
+    const interval = setInterval(updateTimer, 1000);
+    return () => clearInterval(interval);
   }, []);
 
   const formatTime = (seconds: number) => {
@@ -39,7 +47,7 @@ const Registration = () => {
         "https://script.google.com/macros/s/AKfycbzgnfn7BXhBj2Wk9AuRAoJXh9WSU8iWPkBdy5EFCCy9SuZkVlxc_5-b6v1cnNJzBGMk/exec",
         {
           method: "POST",
-          mode: "no-cors", // important for CORS with Apps Script
+          mode: "no-cors",
           headers: {
             "Content-Type": "application/json",
           },
@@ -52,10 +60,8 @@ const Registration = () => {
         }
       );
 
-      // No response body due to no-cors mode, assume success
       setIsSubmitted(true);
     } catch (error) {
-      // Even if error, mark as submitted to avoid blocking UX
       setIsSubmitted(true);
       console.error("Submission failed:", error);
     }
