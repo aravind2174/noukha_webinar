@@ -60,7 +60,7 @@ const Speaker = () => {
               <div className="mb-8">
                 <p className="text-gray-700 mb-4">
                   Ramanathan Alagappan is a leading voice in digital innovation and entrepreneurship, known for transforming 
-                  early ideas into scalable tech ventures. With 10+ years of experience and a background in engineering and strategy, 
+                  early ideas into scalable tech ventures. With 12+ years of experience and a background in engineering and strategy, 
                   he has guided numerous students and startups in building future-ready businesses.
                 </p>
                 <p className="text-gray-700">
@@ -72,15 +72,15 @@ const Speaker = () => {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
                 <div className="bg-gray-50 p-4 rounded-lg">
                   <p className="text-sm text-gray-500">Experience</p>
-                  <p className="font-bold">10+ Years</p>
+                  <p className="font-bold">12+ Years</p>
                 </div>
                 <div className="bg-gray-50 p-4 rounded-lg">
-                  <p className="text-sm text-gray-500">Startups Advised</p>
-                  <p className="font-bold">20+</p>
+                  <p className="text-sm text-gray-500">Startups Invested</p>
+                  <p className="font-bold">2+</p>
                 </div>
                 <div className="bg-gray-50 p-4 rounded-lg">
                   <p className="text-sm text-gray-500">Students Mentored</p>
-                  <p className="font-bold">500+</p>
+                  <p className="font-bold">1000+</p>
                 </div>
               </div>
               
