@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { ArrowRight, Cpu, Database, Code } from 'lucide-react';
 
 const Hero = () => {
@@ -6,19 +7,30 @@ const Hero = () => {
     <section className="pt-28 pb-16 md:pt-36 md:pb-24 relative overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center">
+          {/* Left Side - Text */}
           <div className="md:w-1/2 md:pr-8 z-10">
             <div className="inline-block bg-black/10 px-4 py-1 rounded-full mb-4">
               <span className="text-sm font-medium text-[#179E42]">Live Webinar • June 15, 2025</span>
             </div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-snug mb-6">
-              How Students Can Build AI Projects<br />
-              That Stand Out in the<br />
-              <span className="text-[#179E42]">Startup World</span>
+
+            <h1 className="text-[2.5rem] md:text-[3.25rem] lg:text-[3.5rem] font-bold leading-tight mb-6">
+              <span className="block">How Students Can Build AI</span>
+              <span className="block">Projects That Stand Out in the</span>
+              <motion.span
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="text-[#179E42] block"
+              >
+                Startup World
+              </motion.span>
             </h1>
+
             <p className="text-lg md:text-xl text-gray-700 mb-8">
-              Learn how to go from idea to execution — build real AI tools, explore startup-grade tech stacks, 
+              Learn how to go from idea to execution — build real AI tools, explore startup-grade tech stacks,
               and showcase projects that grab the attention of recruiters, founders, and investors.
             </p>
+
             <div className="flex flex-col sm:flex-row gap-4">
               <a 
                 href="#register" 
@@ -34,7 +46,8 @@ const Hero = () => {
               </a>
             </div>
           </div>
-          
+
+          {/* Right Side - Animation Card */}
           <div className="md:w-1/2 mt-12 md:mt-0 z-10 relative">
             <div className="relative w-full h-80 md:h-96 bg-gradient-to-br from-[#179E42]/20 to-[#179E42]/5 rounded-2xl flex items-center justify-center">
               <div className="absolute -top-5 -left-5 w-20 h-20 bg-black rounded-lg flex items-center justify-center animate-float-slow">
@@ -46,7 +59,7 @@ const Hero = () => {
               <div className="absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-black/80 rounded-full flex items-center justify-center animate-pulse">
                 <Code className="text-white w-12 h-12" />
               </div>
-              
+
               <div className="bg-white p-6 rounded-xl shadow-xl max-w-xs">
                 <h3 className="font-bold text-xl mb-2">Why Attend?</h3>
                 <ul className="space-y-3">
@@ -54,19 +67,19 @@ const Hero = () => {
                     <div className="h-6 w-6 rounded-full bg-[#179E42]/20 flex items-center justify-center mr-2 mt-0.5">
                       <span className="text-[#179E42] text-sm">✓</span>
                     </div>
-                    <span>Master the AI project workflow</span>
+                    <span>Master real AI project flows</span>
                   </li>
                   <li className="flex items-start">
                     <div className="h-6 w-6 rounded-full bg-[#179E42]/20 flex items-center justify-center mr-2 mt-0.5">
                       <span className="text-[#179E42] text-sm">✓</span>
                     </div>
-                    <span>Explore real startup tech stacks</span>
+                    <span>Build startup-worthy portfolios</span>
                   </li>
                   <li className="flex items-start">
                     <div className="h-6 w-6 rounded-full bg-[#179E42]/20 flex items-center justify-center mr-2 mt-0.5">
                       <span className="text-[#179E42] text-sm">✓</span>
                     </div>
-                    <span>Showcase work that gets noticed</span>
+                    <span>Impress VCs and recruiters</span>
                   </li>
                 </ul>
               </div>
@@ -74,7 +87,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      
+
       {/* Stats Bar */}
       <div className="mt-16 bg-black py-8">
         <div className="container mx-auto px-4">
