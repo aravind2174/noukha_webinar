@@ -5,32 +5,32 @@ const galleryImages = [
   {
     id: 1,
     url: "https://res.cloudinary.com/dhn6uszk0/image/upload/v1749115002/img1_iptxvk.jpg",
-    title: "StartUp Conference",
+    title: "CIT Start-Up Pitchathon",
   },
   {
     id: 2,
     url: "https://res.cloudinary.com/dhn6uszk0/image/upload/v1749115004/img6_e8oxvk.jpg",
-    title: "Startup Meetup",
+    title: "PSG Tech Hackathon",
   },
   {
     id: 3,
     url: "https://res.cloudinary.com/dhn6uszk0/image/upload/v1749115002/img7_kwtbqg.jpg",
-    title: "Coding BootCamp",
+    title: "MIT Coding Workshop",
   },
   {
     id: 4,
     url: "https://res.cloudinary.com/dhn6uszk0/image/upload/v1749115002/img3_nioct5.jpg",
-    title: "Student Project Showcase",
+    title: "KPR College Tech Workshop",
   },
   {
     id: 5,
     url: "https://res.cloudinary.com/dhn6uszk0/image/upload/v1749115002/img4_bsgmt0.jpg",
-    title: "Startup Panel Discussion",
+    title: "GRG Nxt Startup Panel Discussion",
   },
   {
     id: 6,
     url: "https://res.cloudinary.com/dhn6uszk0/image/upload/v1749115002/img2_svdhf7.jpg",
-    title: "AI Innovation Hackathon",
+    title: "CIT - MBA Coding Workshop",
   },
 ];
 
