@@ -41,7 +41,7 @@ const Registration = () => {
     e.preventDefault();
     try {
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbyIcEOwWygx_VxUadZDAIOpX8S0krOe0m62WqMMg7ZW5lEsq2LNF-GPMFC9gPleu2cV/exec",
+        "https://script.google.com/macros/s/AKfycbwzjIwhObGqcvSC4VAkKUefQFXhOQyw5Uc-ikRNNQRLHlUKYqFFUZB8po_vm9P9QtZm/exec",
         {
           method: "POST",
           headers: {
