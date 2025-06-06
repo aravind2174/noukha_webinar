@@ -58,27 +58,27 @@ const About = () => {
           <div className="md:w-2/3 md:pr-8 mb-8 md:mb-0">
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">What You'll Take Away</h2>
             <p className="text-gray-300 mb-6">
-              This isn't just theory – you'll leave with actionable insights, project templates, and resources to start 
-              building your own AI projects immediately after the webinar.
+              This webinar isn’t just theory — you’ll gain practical insights, clear strategies, and confidence to start building 
+              and showcasing AI projects right away.
             </p>
             <ul className="space-y-3">
               <li className="flex items-start text-gray-300">
                 <div className="h-6 w-6 rounded-full bg-[#179E42] flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
                   <span className="text-white text-sm">✓</span>
                 </div>
-                <span>Starter code and project templates to kick off your own AI builds right after the session</span>
+                <span>Understand the full AI project lifecycle — from idea to deployment</span>
               </li>
               <li className="flex items-start text-gray-300">
                 <div className="h-6 w-6 rounded-full bg-[#179E42] flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
                   <span className="text-white text-sm">✓</span>
                 </div>
-                <span>Curated AI tools and resources to continue learning and experimenting with confidence</span>
+                <span>Learn about essential AI tools and how to effectively use them</span>
               </li>
               <li className="flex items-start text-gray-300">
                 <div className="h-6 w-6 rounded-full bg-[#179E42] flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
                   <span className="text-white text-sm">✓</span>
                 </div>
-                <span>A practical framework for turning your AI projects into real-world startup ideas</span>
+                <span> Discover how to present your projects to impress recruiters, founders, and investors</span>
               </li>
             </ul>
           </div>
