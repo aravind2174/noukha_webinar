@@ -54,19 +54,19 @@ const Hero = () => {
                     <div className="h-6 w-6 rounded-full bg-[#179E42]/20 flex items-center justify-center mr-2 mt-0.5">
                       <span className="text-[#179E42] text-sm">✓</span>
                     </div>
-                    <span>Learn cutting-edge AI techniques</span>
+                    <span>Master the AI project workflow</span>
                   </li>
                   <li className="flex items-start">
                     <div className="h-6 w-6 rounded-full bg-[#179E42]/20 flex items-center justify-center mr-2 mt-0.5">
                       <span className="text-[#179E42] text-sm">✓</span>
                     </div>
-                    <span>Build impressive portfolio projects</span>
+                    <span>Explore real startup tech stacks</span>
                   </li>
                   <li className="flex items-start">
                     <div className="h-6 w-6 rounded-full bg-[#179E42]/20 flex items-center justify-center mr-2 mt-0.5">
                       <span className="text-[#179E42] text-sm">✓</span>
                     </div>
-                    <span>Stand out in competitive markets</span>
+                    <span>Showcase work that gets noticed</span>
                   </li>
                 </ul>
               </div>
