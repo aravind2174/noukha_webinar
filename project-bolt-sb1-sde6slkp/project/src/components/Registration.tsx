@@ -9,29 +9,27 @@ const Registration = () => {
     expectation: '',
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(1800); // seconds, 30 minutes
+  const [timeLeft, setTimeLeft] = useState(1800); // 30 minutes
 
   useEffect(() => {
     const timer = setInterval(() => {
       setTimeLeft((prev) => {
         if (prev <= 1) {
-          return 1800; // reset to 30 minutes again
+          return 1800;
         }
         return prev - 1;
       });
     }, 1000);
-
     return () => clearInterval(timer);
   }, []);
 
-  // Convert seconds to mm:ss format
   const formatTime = (seconds: number) => {
     const m = Math.floor(seconds / 60);
     const s = seconds % 60;
     return `${m.toString().padStart(2, '0')}m ${s.toString().padStart(2, '0')}s`;
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
@@ -39,10 +37,36 @@ const Registration = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    setIsSubmitted(true);
+    try {
+      const response = await fetch(
+        "https://script.google.com/macros/s/AKfycbyIcEOwWygx_VxUadZDAIOpX8S0krOe0m62WqMMg7ZW5lEsq2LNF-GPMFC9gPleu2cV/exec",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            fullName: formData.name,
+            email: formData.email,
+            university: formData.university,
+            learningGoal: formData.expectation,
+          }),
+        }
+      );
+
+      const result = await response.json();
+      if (result.status === "success") {
+        setIsSubmitted(true);
+      } else {
+        alert("Something went wrong. Please try again.");
+        console.error(result.message);
+      }
+    } catch (error) {
+      alert("Submission failed. Check your connection and try again.");
+      console.error("Error submitting form:", error);
+    }
   };
 
   return (
@@ -56,7 +80,6 @@ const Registration = () => {
                 Secure your spot for this exclusive paid webinar and take the first step toward leveraging AI for your future in tech and entrepreneurship.
               </p>
 
-              {/* Early Bird Pricing */}
               <div className="mb-8 bg-white/10 p-6 rounded-xl text-center">
                 <h3 className="font-bold text-2xl mb-2">
                   <span className="line-through mr-4 text-gray-300">₹799/-</span>
@@ -80,8 +103,8 @@ const Registration = () => {
                 <div className="flex items-start">
                   <Clock className="w-6 h-6 mr-4 flex-shrink-0 mt-1" />
                   <div>
-                    <h3 className="font-bold text-xl">10:00 AM - 1:00 PM (EST)</h3>
-                    <p className="text-white/80">3 hours of valuable content</p>
+                    <h3 className="font-bold text-xl">10:00 AM - 11:00 AM (IST)</h3>
+                    <p className="text-white/80">1 hour of pure insight + live Q&A</p>
                   </div>
                 </div>
               </div>
