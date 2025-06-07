@@ -190,7 +190,7 @@ const Registration = () => {
                       </summary>
                       <div className="mt-4 text-center">
                         <img
-                          src="https://i.postimg.cc/T1B3ZxQg/sample-qr.png"
+                          src="https://res.cloudinary.com/dhn6uszk0/image/upload/v1749282975/WhatsApp_Image_2025-06-07_at_13.24.46_2bbd4448_hn4z3d.jpg"
                           alt="QR Code"
                           className="mx-auto max-w-[200px] rounded"
                         />
