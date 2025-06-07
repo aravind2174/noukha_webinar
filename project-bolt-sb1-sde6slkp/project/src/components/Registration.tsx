@@ -7,6 +7,7 @@ const Registration = () => {
     email: '',
     university: '',
     expectation: '',
+    screenshot: null as File | null,
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [timeLeft, setTimeLeft] = useState(0);
@@ -21,7 +22,7 @@ const Registration = () => {
       setTimeLeft(remaining);
     };
 
-    updateTimer(); // initial call
+    updateTimer();
     const interval = setInterval(updateTimer, 1000);
     return () => clearInterval(interval);
   }, []);
@@ -39,23 +40,31 @@ const Registration = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0] || null;
+    setFormData((prev) => ({ ...prev, screenshot: file }));
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    // Future: Upload screenshot to Firebase here before proceeding.
+
     try {
       await fetch(
-        "https://script.google.com/macros/s/AKfycbzNlyti6ZucZenK0USCTjIakQGAuZ5RJEakP1LEEUBuSWKByXyoGjxuQmPT7j2S41VP/exec",
+        'https://script.google.com/macros/s/AKfycbzNlyti6ZucZenK0USCTjIakQGAuZ5RJEakP1LEEUBuSWKByXyoGjxuQmPT7j2S41VP/exec',
         {
-          method: "POST",
-          mode: "no-cors",
+          method: 'POST',
+          mode: 'no-cors',
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
           body: JSON.stringify({
             fullName: formData.name,
             email: formData.email,
             university: formData.university,
             learningGoal: formData.expectation,
+            // Screenshot upload will go to Firebase separately
           }),
         }
       );
@@ -63,7 +72,7 @@ const Registration = () => {
       setIsSubmitted(true);
     } catch (error) {
       setIsSubmitted(true);
-      console.error("Submission failed:", error);
+      console.error('Submission failed:', error);
     }
   };
 
@@ -168,6 +177,42 @@ const Registration = () => {
                       className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#179E42] focus:border-transparent h-32 resize-none"
                       placeholder="I'm interested in learning about..."
                     ></textarea>
+                  </div>
+
+                  {/* QR Code Dropdown */}
+                  <div>
+                    <label className="block text-gray-700 font-medium mb-2">
+                      Make Payment (₹99/-)
+                    </label>
+                    <details className="bg-gray-100 p-4 rounded-md cursor-pointer">
+                      <summary className="cursor-pointer font-medium text-[#179E42]">
+                        Show QR Code
+                      </summary>
+                      <div className="mt-4 text-center">
+                        <img
+                          src="https://i.postimg.cc/T1B3ZxQg/sample-qr.png"
+                          alt="QR Code"
+                          className="mx-auto max-w-[200px] rounded"
+                        />
+                        <p className="mt-2 text-sm text-gray-600">Scan to pay ₹99/-</p>
+                      </div>
+                    </details>
+                  </div>
+
+                  {/* Screenshot Upload */}
+                  <div>
+                    <label htmlFor="screenshot" className="block text-gray-700 font-medium mb-2">
+                      Upload Payment Screenshot
+                    </label>
+                    <input
+                      type="file"
+                      id="screenshot"
+                      name="screenshot"
+                      accept="image/*"
+                      onChange={handleFileChange}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#179E42] focus:border-transparent"
+                      required
+                    />
                   </div>
 
                   <button
