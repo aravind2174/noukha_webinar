@@ -48,26 +48,28 @@ const Registration = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const submissionData = new FormData();
-    submissionData.append('fullName', formData.name);
-    submissionData.append('email', formData.email);
-    submissionData.append('university', formData.university);
-    submissionData.append('learningGoal', formData.expectation);
+    const submission = new FormData();
+    submission.append('name', formData.name);
+    submission.append('email', formData.email);
+    submission.append('university', formData.university);
+    submission.append('expectation', formData.expectation);
     if (formData.screenshot) {
-      submissionData.append('screenshot', formData.screenshot);
+      submission.append('screenshot', formData.screenshot, formData.screenshot.name);
     }
 
     try {
-      await fetch(
+      const response = await fetch(
         'https://script.google.com/macros/s/AKfycbyZU2rH668YHvVPD6r6d0IctKD5fHonl8nAf42QNaYHHV1-WTtGx3vTke2UcgoPbtut/exec',
         {
           method: 'POST',
-          body: submissionData,
+          body: submission,
         }
       );
+      const result = await response.text();
+      console.log("Server response:", result);
       setIsSubmitted(true);
     } catch (error) {
-      console.error('Submission failed:', error);
+      console.error('Upload error:', error);
       setIsSubmitted(true);
     }
   };
@@ -77,6 +79,7 @@ const Registration = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col lg:flex-row items-stretch shadow-xl rounded-xl overflow-hidden">
+            {/* LEFT PANEL */}
             <div className="lg:w-1/2 bg-[#179E42] p-8 md:p-12 text-white flex flex-col justify-center">
               <h2 className="text-3xl md:text-4xl font-bold mb-6">Register Now</h2>
               <p className="text-white/90 text-lg mb-6">
@@ -108,40 +111,111 @@ const Registration = () => {
               </div>
             </div>
 
+            {/* RIGHT PANEL */}
             <div className="lg:w-1/2 bg-white p-8 md:p-12">
               {!isSubmitted ? (
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
-                    <label htmlFor="name" className="block text-gray-700 font-medium mb-2">Full Name</label>
-                    <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#179E42]" placeholder="Your full name" />
+                    <label htmlFor="name" className="block text-gray-700 font-medium mb-2">
+                      Full Name
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-md"
+                      placeholder="Your full name"
+                    />
                   </div>
+
                   <div>
-                    <label htmlFor="email" className="block text-gray-700 font-medium mb-2">Email Address</label>
-                    <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#179E42]" placeholder="Your email address" />
+                    <label htmlFor="email" className="block text-gray-700 font-medium mb-2">
+                      Email Address
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-md"
+                      placeholder="Your email address"
+                    />
                   </div>
+
                   <div>
-                    <label htmlFor="university" className="block text-gray-700 font-medium mb-2">University/Institution</label>
-                    <input type="text" id="university" name="university" value={formData.university} onChange={handleChange} className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#179E42]" placeholder="Your university or institution" />
+                    <label htmlFor="university" className="block text-gray-700 font-medium mb-2">
+                      University/Institution
+                    </label>
+                    <input
+                      type="text"
+                      id="university"
+                      name="university"
+                      value={formData.university}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-md"
+                      placeholder="Your university or institution"
+                    />
                   </div>
+
                   <div>
-                    <label htmlFor="expectation" className="block text-gray-700 font-medium mb-2">What do you hope to learn?</label>
-                    <textarea id="expectation" name="expectation" value={formData.expectation} onChange={handleChange} className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#179E42] h-32 resize-none" placeholder="I'm interested in learning about..." />
+                    <label htmlFor="expectation" className="block text-gray-700 font-medium mb-2">
+                      What do you hope to learn?
+                    </label>
+                    <textarea
+                      id="expectation"
+                      name="expectation"
+                      value={formData.expectation}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-md h-32 resize-none"
+                      placeholder="I'm interested in learning about..."
+                    ></textarea>
                   </div>
+
+                  {/* QR Code Dropdown */}
                   <div>
-                    <label className="block text-gray-700 font-medium mb-2">Make Payment (₹99/-)</label>
+                    <label className="block text-gray-700 font-medium mb-2">
+                      Make Payment (₹99/-)
+                    </label>
                     <details className="bg-gray-100 p-4 rounded-md cursor-pointer">
-                      <summary className="cursor-pointer font-medium text-[#179E42]">Show QR Code</summary>
+                      <summary className="cursor-pointer font-medium text-[#179E42]">
+                        Show QR Code
+                      </summary>
                       <div className="mt-4 text-center">
-                        <img src="https://res.cloudinary.com/dhn6uszk0/image/upload/v1749282975/WhatsApp_Image_2025-06-07_at_13.24.46_2bbd4448_hn4z3d.jpg" alt="QR Code" className="mx-auto max-w-[200px] rounded" />
+                        <img
+                          src="https://res.cloudinary.com/dhn6uszk0/image/upload/v1749282975/WhatsApp_Image_2025-06-07_at_13.24.46_2bbd4448_hn4z3d.jpg"
+                          alt="QR Code"
+                          className="mx-auto max-w-[200px] rounded"
+                        />
                         <p className="mt-2 text-sm text-gray-600">Scan to pay ₹99/-</p>
                       </div>
                     </details>
                   </div>
+
+                  {/* Screenshot Upload */}
                   <div>
-                    <label htmlFor="screenshot" className="block text-gray-700 font-medium mb-2">Upload Payment Screenshot</label>
-                    <input type="file" id="screenshot" name="screenshot" accept="image/*" onChange={handleFileChange} className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#179E42]" required />
+                    <label htmlFor="screenshot" className="block text-gray-700 font-medium mb-2">
+                      Upload Payment Screenshot
+                    </label>
+                    <input
+                      type="file"
+                      id="screenshot"
+                      name="screenshot"
+                      accept="image/*"
+                      onChange={handleFileChange}
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-md"
+                    />
                   </div>
-                  <button type="submit" className="w-full bg-[#179E42] text-white px-6 py-3 rounded-md font-medium hover:bg-[#0f7a31] transition-colors flex items-center justify-center">
+
+                  <button
+                    type="submit"
+                    className="w-full bg-[#179E42] text-white px-6 py-3 rounded-md font-medium hover:bg-[#0f7a31] transition-colors flex items-center justify-center"
+                  >
                     Register for Webinar ₹99/- <Send className="ml-2 h-5 w-5" />
                   </button>
                 </form>
