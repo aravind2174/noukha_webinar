@@ -48,31 +48,27 @@ const Registration = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Future: Upload screenshot to Firebase here before proceeding.
+    const submissionData = new FormData();
+    submissionData.append('fullName', formData.name);
+    submissionData.append('email', formData.email);
+    submissionData.append('university', formData.university);
+    submissionData.append('learningGoal', formData.expectation);
+    if (formData.screenshot) {
+      submissionData.append('screenshot', formData.screenshot);
+    }
 
     try {
       await fetch(
-        'https://script.google.com/macros/s/AKfycbzNlyti6ZucZenK0USCTjIakQGAuZ5RJEakP1LEEUBuSWKByXyoGjxuQmPT7j2S41VP/exec',
+        'https://script.google.com/macros/s/AKfycbyZU2rH668YHvVPD6r6d0IctKD5fHonl8nAf42QNaYHHV1-WTtGx3vTke2UcgoPbtut/exec',
         {
           method: 'POST',
-          mode: 'no-cors',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            fullName: formData.name,
-            email: formData.email,
-            university: formData.university,
-            learningGoal: formData.expectation,
-            // Screenshot upload will go to Firebase separately
-          }),
+          body: submissionData,
         }
       );
-
       setIsSubmitted(true);
     } catch (error) {
-      setIsSubmitted(true);
       console.error('Submission failed:', error);
+      setIsSubmitted(true);
     }
   };
 
@@ -86,7 +82,6 @@ const Registration = () => {
               <p className="text-white/90 text-lg mb-6">
                 Secure your spot for this exclusive paid webinar and take the first step toward leveraging AI for your future in tech and entrepreneurship.
               </p>
-
               <div className="mb-8 bg-white/10 p-6 rounded-xl text-center">
                 <h3 className="font-bold text-2xl mb-2">
                   <span className="line-through mr-4 text-gray-300">₹799/-</span>
@@ -95,7 +90,6 @@ const Registration = () => {
                 <p className="text-white/80 mb-4">Grab your seat before the offer ends!</p>
                 <div className="text-xl font-mono tracking-wide">{formatTime(timeLeft)}</div>
               </div>
-
               <div className="space-y-6 mb-8">
                 <div className="flex items-start">
                   <Calendar className="w-6 h-6 mr-4 flex-shrink-0 mt-1" />
@@ -104,7 +98,6 @@ const Registration = () => {
                     <p className="text-white/80">Mark your calendar</p>
                   </div>
                 </div>
-
                 <div className="flex items-start">
                   <Clock className="w-6 h-6 mr-4 flex-shrink-0 mt-1" />
                   <div>
@@ -119,106 +112,36 @@ const Registration = () => {
               {!isSubmitted ? (
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
-                    <label htmlFor="name" className="block text-gray-700 font-medium mb-2">
-                      Full Name
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#179E42] focus:border-transparent"
-                      placeholder="Your full name"
-                    />
+                    <label htmlFor="name" className="block text-gray-700 font-medium mb-2">Full Name</label>
+                    <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#179E42]" placeholder="Your full name" />
                   </div>
-
                   <div>
-                    <label htmlFor="email" className="block text-gray-700 font-medium mb-2">
-                      Email Address
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#179E42] focus:border-transparent"
-                      placeholder="Your email address"
-                    />
+                    <label htmlFor="email" className="block text-gray-700 font-medium mb-2">Email Address</label>
+                    <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#179E42]" placeholder="Your email address" />
                   </div>
-
                   <div>
-                    <label htmlFor="university" className="block text-gray-700 font-medium mb-2">
-                      University/Institution
-                    </label>
-                    <input
-                      type="text"
-                      id="university"
-                      name="university"
-                      value={formData.university}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#179E42] focus:border-transparent"
-                      placeholder="Your university or institution"
-                    />
+                    <label htmlFor="university" className="block text-gray-700 font-medium mb-2">University/Institution</label>
+                    <input type="text" id="university" name="university" value={formData.university} onChange={handleChange} className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#179E42]" placeholder="Your university or institution" />
                   </div>
-
                   <div>
-                    <label htmlFor="expectation" className="block text-gray-700 font-medium mb-2">
-                      What do you hope to learn?
-                    </label>
-                    <textarea
-                      id="expectation"
-                      name="expectation"
-                      value={formData.expectation}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#179E42] focus:border-transparent h-32 resize-none"
-                      placeholder="I'm interested in learning about..."
-                    ></textarea>
+                    <label htmlFor="expectation" className="block text-gray-700 font-medium mb-2">What do you hope to learn?</label>
+                    <textarea id="expectation" name="expectation" value={formData.expectation} onChange={handleChange} className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#179E42] h-32 resize-none" placeholder="I'm interested in learning about..." />
                   </div>
-
-                  {/* QR Code Dropdown */}
                   <div>
-                    <label className="block text-gray-700 font-medium mb-2">
-                      Make Payment (₹99/-)
-                    </label>
+                    <label className="block text-gray-700 font-medium mb-2">Make Payment (₹99/-)</label>
                     <details className="bg-gray-100 p-4 rounded-md cursor-pointer">
-                      <summary className="cursor-pointer font-medium text-[#179E42]">
-                        Show QR Code
-                      </summary>
+                      <summary className="cursor-pointer font-medium text-[#179E42]">Show QR Code</summary>
                       <div className="mt-4 text-center">
-                        <img
-                          src="https://res.cloudinary.com/dhn6uszk0/image/upload/v1749282975/WhatsApp_Image_2025-06-07_at_13.24.46_2bbd4448_hn4z3d.jpg"
-                          alt="QR Code"
-                          className="mx-auto max-w-[200px] rounded"
-                        />
+                        <img src="https://res.cloudinary.com/dhn6uszk0/image/upload/v1749282975/WhatsApp_Image_2025-06-07_at_13.24.46_2bbd4448_hn4z3d.jpg" alt="QR Code" className="mx-auto max-w-[200px] rounded" />
                         <p className="mt-2 text-sm text-gray-600">Scan to pay ₹99/-</p>
                       </div>
                     </details>
                   </div>
-
-                  {/* Screenshot Upload */}
                   <div>
-                    <label htmlFor="screenshot" className="block text-gray-700 font-medium mb-2">
-                      Upload Payment Screenshot
-                    </label>
-                    <input
-                      type="file"
-                      id="screenshot"
-                      name="screenshot"
-                      accept="image/*"
-                      onChange={handleFileChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#179E42] focus:border-transparent"
-                      required
-                    />
+                    <label htmlFor="screenshot" className="block text-gray-700 font-medium mb-2">Upload Payment Screenshot</label>
+                    <input type="file" id="screenshot" name="screenshot" accept="image/*" onChange={handleFileChange} className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#179E42]" required />
                   </div>
-
-                  <button
-                    type="submit"
-                    className="w-full bg-[#179E42] text-white px-6 py-3 rounded-md font-medium hover:bg-[#0f7a31] transition-colors flex items-center justify-center"
-                  >
+                  <button type="submit" className="w-full bg-[#179E42] text-white px-6 py-3 rounded-md font-medium hover:bg-[#0f7a31] transition-colors flex items-center justify-center">
                     Register for Webinar ₹99/- <Send className="ml-2 h-5 w-5" />
                   </button>
                 </form>
