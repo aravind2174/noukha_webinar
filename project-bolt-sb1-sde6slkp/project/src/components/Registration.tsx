@@ -30,7 +30,7 @@ const Registration = () => {
   const formatTime = (seconds: number) => {
     const m = Math.floor(seconds / 60);
     const s = seconds % 60;
-    return ${m.toString().padStart(2, '0')}m ${s.toString().padStart(2, '0')}s;
+    return `${m.toString().padStart(2, '0')}m ${s.toString().padStart(2, '0')}s`;
   };
 
   const handleChange = (
@@ -68,7 +68,7 @@ const Registration = () => {
       setIsSubmitted(true);
     } catch (error) {
       console.error('Upload error:', error);
-      setIsSubmitted(true); // Still proceed to thank-you
+      setIsSubmitted(true); // Proceed anyway
     }
   };
 
