@@ -30,7 +30,7 @@ const Registration = () => {
   const formatTime = (seconds: number) => {
     const m = Math.floor(seconds / 60);
     const s = seconds % 60;
-    return `${m.toString().padStart(2, '0')}m ${s.toString().padStart(2, '0')}s`;
+    return ${m.toString().padStart(2, '0')}m ${s.toString().padStart(2, '0')}s;
   };
 
   const handleChange = (
@@ -54,23 +54,21 @@ const Registration = () => {
     submission.append('university', formData.university);
     submission.append('expectation', formData.expectation);
     if (formData.screenshot) {
-      submission.append('screenshot', formData.screenshot, formData.screenshot.name);
+      submission.append('screenshot', formData.screenshot);
     }
 
     try {
-      const response = await fetch(
-        'https://script.google.com/macros/s/AKfycbyZU2rH668YHvVPD6r6d0IctKD5fHonl8nAf42QNaYHHV1-WTtGx3vTke2UcgoPbtut/exec',
+      await fetch(
+        'https://script.google.com/macros/s/AKfycbzgnfn7BXhBj2Wk9AuRAoJXh9WSU8iWPkBdy5EFCCy9SuZkVlxc_5-b6v1cnNJzBGMk/exec',
         {
           method: 'POST',
           body: submission,
         }
       );
-      const result = await response.text();
-      console.log("Server response:", result);
       setIsSubmitted(true);
     } catch (error) {
       console.error('Upload error:', error);
-      setIsSubmitted(true);
+      setIsSubmitted(true); // Still proceed to thank-you
     }
   };
 
