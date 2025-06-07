@@ -60,7 +60,7 @@ const Registration = () => {
 
     try {
       await fetch(
-        'https://script.google.com/macros/s/AKfycbyivu3kH3vyw2otp42Wg9DmpTvcq4gGt-nXRyMZQyWM7TH9C-i6jM0LtJQ7im57VMcQ/exec',
+        'https://script.google.com/macros/s/AKfycbxHg5O-omBmmGYEQIIjpNL_6zblbxXgoUfh4YYI5WwLkNGPiP28Mofx1UAiEgL6CQcU/exec',
         {
           method: 'POST',
           body: submissionData,
