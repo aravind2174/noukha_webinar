@@ -57,7 +57,7 @@ const Registration = () => {
 
     try {
       await fetch(
-        'https://script.google.com/macros/s/AKfycbxHg5O-omBmmGYEQIIjpNL_6zblbxXgoUfh4YYI5WwLkNGPiP28Mofx1UAiEgL6CQcU/exec',
+        'https://script.google.com/macros/s/AKfycbxXlRT11RIJkRPfvC38r_aL5yRXIilSDU_ayC5G_dxhumDapVhQB43jDSaxPnj12yY7/exec',
         {
           method: 'POST',
           body: submissionData,
