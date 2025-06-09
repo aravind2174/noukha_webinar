@@ -98,7 +98,7 @@ const Registration = () => {
               <div className="text-center">
                 <p className="mb-4 text-white/80">Scan & Pay ₹99</p>
                 <img
-                  src="https://res.cloudinary.com/dhn6uszk0/image/upload/v1749282975/WhatsApp_Image_2025-06-07_at_13.24.46_2bbd4448_hn4z3d.jpg" // make sure this is correctly placed in your `public/` folder
+                  src="https://myonlinevipani.com/wp-content/uploads/2020/11/My-Online-Vipani-Google-Pay-QR-Code-300x300.jpg" // make sure this is correctly placed in your `public/` folder
                   alt="QR Code"
                   className="mx-auto w-40 h-40 rounded-md border-2 border-white"
                 />
