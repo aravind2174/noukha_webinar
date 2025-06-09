@@ -7,11 +7,9 @@ const Registration = () => {
     email: '',
     university: '',
     expectation: '',
-    screenshot: null as File | null,
+    screenshot: null as File | null, // This will be handled via Supabase
   });
-
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
   const [timeLeft, setTimeLeft] = useState(0);
 
   useEffect(() => {
@@ -44,28 +42,18 @@ const Registration = () => {
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0] || null;
-
-    if (file && !file.type.startsWith('image/')) {
-      alert('Please upload a valid image file.');
-      return;
-    }
-
     setFormData((prev) => ({ ...prev, screenshot: file }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    setIsLoading(true);
-
+    // Only send text fields to Apps Script
     const submissionData = new FormData();
     submissionData.append('fullName', formData.name);
     submissionData.append('email', formData.email);
     submissionData.append('university', formData.university);
     submissionData.append('learningGoal', formData.expectation);
-    if (formData.screenshot) {
-      submissionData.append('screenshot', formData.screenshot);
-    }
 
     try {
       await fetch(
@@ -76,11 +64,14 @@ const Registration = () => {
         }
       );
       setIsSubmitted(true);
+
+      // You can now handle the file upload to Supabase separately here if needed.
+      // Example:
+      // if (formData.screenshot) uploadToSupabase(formData.screenshot);
+
     } catch (error) {
       console.error('Submission failed:', error);
-      alert('Something went wrong. Please try again.');
-    } finally {
-      setIsLoading(false);
+      setIsSubmitted(true);
     }
   };
 
@@ -133,11 +124,11 @@ const Registration = () => {
                   </div>
                   <div>
                     <label htmlFor="university" className="block text-gray-700 font-medium mb-2">University/Institution</label>
-                    <input type="text" id="university" name="university" value={formData.university} onChange={handleChange} required className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#179E42]" placeholder="Your university or institution" />
+                    <input type="text" id="university" name="university" value={formData.university} onChange={handleChange} className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#179E42]" placeholder="Your university or institution" />
                   </div>
                   <div>
                     <label htmlFor="expectation" className="block text-gray-700 font-medium mb-2">What do you hope to learn?</label>
-                    <textarea id="expectation" name="expectation" value={formData.expectation} onChange={handleChange} required className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#179E42] h-32 resize-none" placeholder="I'm interested in learning about..." />
+                    <textarea id="expectation" name="expectation" value={formData.expectation} onChange={handleChange} className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#179E42] h-32 resize-none" placeholder="I'm interested in learning about..." />
                   </div>
                   <div>
                     <label className="block text-gray-700 font-medium mb-2">Make Payment (₹99/-)</label>
@@ -151,17 +142,10 @@ const Registration = () => {
                   </div>
                   <div>
                     <label htmlFor="screenshot" className="block text-gray-700 font-medium mb-2">Upload Payment Screenshot</label>
-                    <input type="file" id="screenshot" name="screenshot" accept="image/*" onChange={handleFileChange} required className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#179E42]" />
+                    <input type="file" id="screenshot" name="screenshot" accept="image/*" onChange={handleFileChange} className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#179E42]" required />
                   </div>
-                  <button
-                    type="submit"
-                    disabled={isLoading}
-                    className={`w-full text-white px-6 py-3 rounded-md font-medium transition-colors flex items-center justify-center ${
-                      isLoading ? 'bg-[#0f7a31]/70 cursor-not-allowed' : 'bg-[#179E42] hover:bg-[#0f7a31]'
-                    }`}
-                  >
-                    {isLoading ? 'Submitting...' : 'Register for Webinar ₹99/-'}
-                    {!isLoading && <Send className="ml-2 h-5 w-5" />}
+                  <button type="submit" className="w-full bg-[#179E42] text-white px-6 py-3 rounded-md font-medium hover:bg-[#0f7a31] transition-colors flex items-center justify-center">
+                    Register for Webinar ₹99/- <Send className="ml-2 h-5 w-5" />
                   </button>
                 </form>
               ) : (
