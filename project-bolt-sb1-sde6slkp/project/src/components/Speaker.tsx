@@ -36,7 +36,7 @@ const slides = [
     ]
   },
   {
-    title: 'Noukha Founder',
+    title: 'Noukha Technologies',
     description: 'Founded Noukha Technologies to help startups scale with custom software, AI, and full-stack innovation.',
     logos: [
       'https://res.cloudinary.com/dhn6uszk0/image/upload/v1749721036/noukha_logo_pzv1pn.png'
