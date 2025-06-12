@@ -137,7 +137,7 @@ const Speaker = () => {
 
         {/* Achievements Section */}
         <div className="mt-24">
-          <h3 className="text-3xl font-bold text-center mb-10">Professional Career</h3>
+          <h3 className="text-3xl font-bold text-center mb-10">Professional Experience</h3>
           <div className="relative w-full overflow-hidden">
             <div className="flex gap-6 w-max animate-scroll">
               {[...slides, ...slides].map((slide, index) => (
