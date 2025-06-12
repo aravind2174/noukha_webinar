@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Linkedin, Globe } from 'lucide-react';
+import { Linkedin, Globe, TrendingUp } from 'lucide-react';
 
 const earlyCareerLogos = [
   'https://res.cloudinary.com/dhn6uszk0/image/upload/v1749726516/wipro-removebg-preview_dvnuhx.png',
@@ -50,7 +50,7 @@ const Speaker = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentLogo((prev) => (prev + 1) % earlyCareerLogos.length);
-    }, 1500); // Change logo every 1.5s
+    }, 1500);
 
     return () => clearInterval(interval);
   }, []);
@@ -143,17 +143,21 @@ const Speaker = () => {
               {[...slides, ...slides].map((slide, index) => (
                 <div key={index} className="min-w-[280px] max-w-[280px] bg-white p-6 rounded-xl shadow-md flex-shrink-0">
                   <div className="mb-4 flex justify-center">
-                    {slide.isAnimated ? (
+                    {slide.title === 'Startup Investments' ? (
+                      <div className="h-16 w-16 flex items-center justify-center text-[#179E42]">
+                        <TrendingUp size={32} />
+                      </div>
+                    ) : slide.isAnimated ? (
                       <img
                         src={slide.logos[currentLogo]}
                         alt="Early Career Logo"
-                        className="h-12 w-12 object-contain transition-opacity duration-700"
+                        className="h-16 w-16 object-contain transition-opacity duration-700"
                       />
                     ) : (
                       <img
                         src={slide.logos[0]}
                         alt={slide.title}
-                        className="h-12 w-12 object-contain"
+                        className="h-16 w-16 object-contain"
                       />
                     )}
                   </div>
