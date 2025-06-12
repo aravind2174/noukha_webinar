@@ -122,22 +122,26 @@ const Speaker = () => {
           </div>
         </div>
 
-        {/* Achievements Slider Section */}
+        {/* Achievements Section */}
         <div className="mt-24">
           <h3 className="text-3xl font-bold text-center mb-10">Achievements</h3>
           <div className="relative w-full overflow-hidden">
-            <div className="flex space-x-6 animate-scroll gap-6 w-max">
-              {slides.map((slide, index) => (
+            <div className="flex gap-6 w-max animate-scroll">
+              {[...slides, ...slides].map((slide, index) => (
                 <div key={index} className="min-w-[280px] max-w-[280px] bg-white p-6 rounded-xl shadow-md flex-shrink-0">
                   <div className="mb-4 flex justify-center">
                     {slide.logos.length > 1 ? (
                       <div className="flex items-center justify-center space-x-2">
                         {slide.logos.map((logo, i) => (
-                          <img key={i} src={logo} alt="Logo" className="h-10 w-10 object-contain" />
+                          <div key={i} className="bg-white p-1 rounded shadow-sm">
+                            <img src={logo} alt="Logo" className="h-10 w-10 object-contain" />
+                          </div>
                         ))}
                       </div>
                     ) : (
-                      <img src={slide.logos[0]} alt="Logo" className="h-12 mx-auto object-contain" />
+                      <div className="bg-white p-2 rounded shadow-sm">
+                        <img src={slide.logos[0]} alt="Logo" className="h-12 mx-auto object-contain" />
+                      </div>
                     )}
                   </div>
                   <h4 className="text-lg font-semibold text-center mb-2">{slide.title}</h4>
@@ -152,30 +156,32 @@ const Speaker = () => {
         <div className="mt-24">
           <h3 className="text-3xl font-bold text-center mb-10">Agenda</h3>
           <div className="grid gap-8 md:grid-cols-3">
-            {[{
-              title: 'Part 1: Kickstart with AI & Tools',
-              points: [
-                'Understand the AI project lifecycle',
-                'Explore no-code/low-code tools',
-                'Project types that attract startups'
-              ]
-            },
-            {
-              title: 'Part 2: Live Build & Demo',
-              points: [
-                'Build a real AI tool live',
-                'Hands-on with OpenAI, Supabase, n8n',
-                'Tips to scale & customize your project'
-              ]
-            },
-            {
-              title: 'Part 3: Stand Out & Showcase',
-              points: [
-                'Portfolio best practices',
-                'How to get noticed by recruiters',
-                'Live Q&A and resource giveaway'
-              ]
-            }].map((item, i) => (
+            {[
+              {
+                title: 'Part 1: Kickstart with AI & Tools',
+                points: [
+                  'Understand the AI project lifecycle',
+                  'Explore no-code/low-code tools',
+                  'Project types that attract startups'
+                ]
+              },
+              {
+                title: 'Part 2: Live Build & Demo',
+                points: [
+                  'Build a real AI tool live',
+                  'Hands-on with OpenAI, Supabase, n8n',
+                  'Tips to scale & customize your project'
+                ]
+              },
+              {
+                title: 'Part 3: Stand Out & Showcase',
+                points: [
+                  'Portfolio best practices',
+                  'How to get noticed by recruiters',
+                  'Live Q&A and resource giveaway'
+                ]
+              }
+            ].map((item, i) => (
               <div key={i} className="bg-gray-50 p-6 rounded-xl shadow hover:shadow-md transition">
                 <h4 className="text-[#179E42] font-semibold text-xl mb-3">{item.title}</h4>
                 <ul className="list-disc list-inside text-sm text-gray-700 space-y-2">
