@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Linkedin, Globe } from 'lucide-react';
+
+const earlyCareerLogos = [
+  'https://res.cloudinary.com/dhn6uszk0/image/upload/v1749726516/wipro-removebg-preview_dvnuhx.png',
+  'https://res.cloudinary.com/dhn6uszk0/image/upload/v1749726516/thermo_fisher_mg5ltc.png',
+  'https://res.cloudinary.com/dhn6uszk0/image/upload/v1749726516/logo_u_next-removebg-preview_y4oa3z.png'
+];
 
 const slides = [
   {
     title: 'Early Career',
     description: 'Started as a software engineer and worked across top-tier firms building scalable tech platforms.',
-    logos: [
-      'https://res.cloudinary.com/dhn6uszk0/image/upload/v1749726516/wipro-removebg-preview_dvnuhx.png',
-      'https://res.cloudinary.com/dhn6uszk0/image/upload/v1749726516/thermo_fisher_mg5ltc.png',
-      'https://res.cloudinary.com/dhn6uszk0/image/upload/v1749726516/logo_u_next-removebg-preview_y4oa3z.png'
-    ]
+    isAnimated: true,
+    logos: earlyCareerLogos
   },
   {
     title: 'PayPal Experience',
@@ -42,6 +45,16 @@ const slides = [
 ];
 
 const Speaker = () => {
+  const [currentLogo, setCurrentLogo] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentLogo((prev) => (prev + 1) % earlyCareerLogos.length);
+    }, 1500); // Change logo every 1.5s
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section id="speaker" className="py-16 md:py-24 bg-white">
       <div className="container mx-auto px-4">
@@ -130,18 +143,18 @@ const Speaker = () => {
               {[...slides, ...slides].map((slide, index) => (
                 <div key={index} className="min-w-[280px] max-w-[280px] bg-white p-6 rounded-xl shadow-md flex-shrink-0">
                   <div className="mb-4 flex justify-center">
-                    {slide.logos.length > 1 ? (
-                      <div className="flex items-center justify-center space-x-2">
-                        {slide.logos.map((logo, i) => (
-                          <div key={i} className="bg-white p-1 rounded shadow-sm">
-                            <img src={logo} alt="Logo" className="h-10 w-10 object-contain" />
-                          </div>
-                        ))}
-                      </div>
+                    {slide.isAnimated ? (
+                      <img
+                        src={slide.logos[currentLogo]}
+                        alt="Early Career Logo"
+                        className="h-12 w-12 object-contain transition-opacity duration-700"
+                      />
                     ) : (
-                      <div className="bg-white p-2 rounded shadow-sm">
-                        <img src={slide.logos[0]} alt="Logo" className="h-12 mx-auto object-contain" />
-                      </div>
+                      <img
+                        src={slide.logos[0]}
+                        alt={slide.title}
+                        className="h-12 w-12 object-contain"
+                      />
                     )}
                   </div>
                   <h4 className="text-lg font-semibold text-center mb-2">{slide.title}</h4>
