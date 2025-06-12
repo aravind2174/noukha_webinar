@@ -1,5 +1,5 @@
 import React from 'react';
-import { Linkedin, Globe } from 'lucide-react';
+import { Linkedin, Globe, Award, Rocket, Users } from 'lucide-react';
 
 const Speaker = () => {
   return (
@@ -16,7 +16,6 @@ const Speaker = () => {
           <div className="lg:w-1/3">
             <div className="relative">
               <div className="w-64 h-64 md:w-80 md:h-80 bg-gray-200 rounded-2xl overflow-hidden">
-                {/* Updated speaker image */}
                 <img 
                   src="https://media.licdn.com/dms/image/v2/C5603AQFgt_AwglQ4-g/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1620322854177?e=1754524800&v=beta&t=Y19kZ4m9yTL1jMLhvwN0iJ2N5zgbAtziz3KHbaO7iiI" 
                   alt="Ramanathan Alagappan" 
@@ -99,6 +98,57 @@ const Speaker = () => {
                 </a>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Achievements Section */}
+      <div className="container mx-auto px-4 mt-20">
+        <div className="max-w-4xl mx-auto text-center mb-12">
+          <h3 className="text-2xl md:text-3xl font-bold mb-4">Speaker Highlights</h3>
+          <p className="text-gray-700 text-lg">
+            From mentoring students to building AI tools used by real-world businesses, here’s why he’s the real deal.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="bg-gray-50 p-6 rounded-lg text-center shadow-sm">
+            <Award className="mx-auto mb-4 text-[#179E42]" size={32} />
+            <h4 className="font-bold text-xl mb-2">Built 25+ Products</h4>
+            <p className="text-gray-600">Launched software across industries including healthcare, logistics, education, and F&B.</p>
+          </div>
+          <div className="bg-gray-50 p-6 rounded-lg text-center shadow-sm">
+            <Users className="mx-auto mb-4 text-[#179E42]" size={32} />
+            <h4 className="font-bold text-xl mb-2">Mentored 1000+ Students</h4>
+            <p className="text-gray-600">Conducted AI bootcamps, project reviews, and 1-on-1 mentoring across India.</p>
+          </div>
+          <div className="bg-gray-50 p-6 rounded-lg text-center shadow-sm">
+            <Rocket className="mx-auto mb-4 text-[#179E42]" size={32} />
+            <h4 className="font-bold text-xl mb-2">Founder of Noukha</h4>
+            <p className="text-gray-600">Driving AI-powered custom software for ambitious startups and traditional businesses alike.</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Agenda Section */}
+      <div className="container mx-auto px-4 mt-20">
+        <div className="max-w-4xl mx-auto text-center mb-12">
+          <h3 className="text-2xl md:text-3xl font-bold mb-4">Program Agenda (3 Hours)</h3>
+          <p className="text-gray-700 text-lg">
+            A tightly packed session designed to help students take their AI project from idea to impact.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="bg-white p-6 rounded-lg border shadow-sm">
+            <h4 className="text-xl font-semibold mb-2 text-[#179E42]">Part 1: Idea to Prototype</h4>
+            <p className="text-gray-700">Learn how to identify real-world AI use cases and build quick working prototypes with no fluff.</p>
+          </div>
+          <div className="bg-white p-6 rounded-lg border shadow-sm">
+            <h4 className="text-xl font-semibold mb-2 text-[#179E42]">Part 2: Tools & Tech</h4>
+            <p className="text-gray-700">Explore the beginner-friendly tech stacks used in startups to ship AI products fast.</p>
+          </div>
+          <div className="bg-white p-6 rounded-lg border shadow-sm">
+            <h4 className="text-xl font-semibold mb-2 text-[#179E42]">Part 3: From Student to Startup</h4>
+            <p className="text-gray-700">How to package your project, pitch it, and get attention from recruiters and founders.</p>
           </div>
         </div>
       </div>
