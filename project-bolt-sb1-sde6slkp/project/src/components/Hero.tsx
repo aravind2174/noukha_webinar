@@ -38,9 +38,15 @@ const Hero = () => {
               </span>
             </h1>
 
-            <p className="text-lg md:text-xl text-gray-700 mb-8">
-              Learn how to go from idea to execution — build real AI tools, explore startup-grade tech stacks, and showcase projects that grab the attention of recruiters, founders, and investors.
+            <p className="text-lg md:text-xl text-gray-700 mb-4">
+              Build practical AI projects that get noticed — from idea to execution.
             </p>
+
+            <div className="text-base text-gray-800 mb-8 space-y-1">
+              <p><strong>Date:</strong> July 15, 2025</p>
+              <p><strong>Time:</strong> 10 AM to 1 PM</p>
+              <p><strong>Location:</strong> Coimbatore (venue will be shared with registered participants)</p>
+            </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
               <a
