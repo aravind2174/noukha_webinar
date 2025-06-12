@@ -4,7 +4,7 @@ import { Linkedin, Globe } from 'lucide-react';
 const Speaker = () => {
   return (
     <>
-      {/* Speaker Section */}
+      {/* Speaker Section (unchanged) */}
       <section id="speaker" className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-16">
@@ -18,9 +18,9 @@ const Speaker = () => {
             <div className="lg:w-1/3">
               <div className="relative">
                 <div className="w-64 h-64 md:w-80 md:h-80 bg-gray-200 rounded-2xl overflow-hidden">
-                  <img
-                    src="https://media.licdn.com/dms/image/v2/C5603AQFgt_AwglQ4-g/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1620322854177?e=1754524800&v=beta&t=Y19kZ4m9yTL1jMLhvwN0iJ2N5zgbAtziz3KHbaO7iiI"
-                    alt="Ramanathan Alagappan"
+                  <img 
+                    src="https://media.licdn.com/dms/image/v2/C5603AQFgt_AwglQ4-g/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1620322854177?e=1754524800&v=beta&t=Y19kZ4m9yTL1jMLhvwN0iJ2N5zgbAtziz3KHbaO7iiI" 
+                    alt="Ramanathan Alagappan" 
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -33,23 +33,22 @@ const Speaker = () => {
               <div className="bg-white p-8 rounded-xl shadow-md">
                 <div className="flex items-start justify-between mb-6">
                   <div>
-                    <h3 className="text-2xl font-bold flex items-center gap-2">
-                      Meet Mr. Ram{' '}
-                      <a
-                        href="https://linkedin.com/in/ramanathan-alagappan"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-[#179E42]"
-                      >
-                        <Linkedin size={20} />
-                      </a>
-                    </h3>
+                    <h3 className="text-2xl font-bold">Ramanathan Alagappan</h3>
                     <p className="text-[#179E42] font-medium">Founder, Noukha Technologies</p>
                   </div>
                   <div className="flex space-x-3">
-                    <a
-                      href="https://noukha.in/"
-                      target="_blank"
+                    <a 
+                      href="https://linkedin.com/in/ramanathan-alagappan" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-[#179E42] hover:text-white transition-colors"
+                      aria-label="LinkedIn"
+                    >
+                      <Linkedin size={18} />
+                    </a>
+                    <a 
+                      href="https://noukha.in/" 
+                      target="_blank" 
                       rel="noopener noreferrer"
                       className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-[#179E42] hover:text-white transition-colors"
                       aria-label="Website"
@@ -59,17 +58,19 @@ const Speaker = () => {
                   </div>
                 </div>
 
-                <p className="text-gray-700 mb-4">
-                  Ramanathan Alagappan is a leading voice in digital innovation and entrepreneurship, known for transforming
-                  early ideas into scalable tech ventures. With 12+ years of experience and a background in engineering and strategy,
-                  he has guided numerous students and startups in building future-ready businesses.
-                </p>
-                <p className="text-gray-700">
-                  As the founder of Noukha Technologies, Ramanathan blends product thinking with growth marketing, making him a go-to mentor
-                  for students eager to turn their AI-powered ideas into impactful startups.
-                </p>
+                <div className="mb-8">
+                  <p className="text-gray-700 mb-4">
+                    Ramanathan Alagappan is a leading voice in digital innovation and entrepreneurship, known for transforming 
+                    early ideas into scalable tech ventures. With 12+ years of experience and a background in engineering and strategy, 
+                    he has guided numerous students and startups in building future-ready businesses.
+                  </p>
+                  <p className="text-gray-700">
+                    As the founder of Noukha Technologies, Ramanathan blends product thinking with growth marketing, making him a go-to mentor 
+                    for students eager to turn their AI-powered ideas into impactful startups.
+                  </p>
+                </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6 mb-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
                   <div className="bg-gray-50 p-4 rounded-lg">
                     <p className="text-sm text-gray-500">Experience</p>
                     <p className="font-bold">12+ Years</p>
@@ -85,14 +86,14 @@ const Speaker = () => {
                 </div>
 
                 <div className="flex flex-col sm:flex-row items-center gap-4">
-                  <a
-                    href="#register"
+                  <a 
+                    href="#register" 
                     className="w-full sm:w-auto bg-[#179E42] text-white px-8 py-3 rounded-md font-medium hover:bg-[#0f7a31] transition-all text-center"
                   >
                     Register Now
                   </a>
-                  <a
-                    href="#gallery"
+                  <a 
+                    href="#gallery" 
                     className="w-full sm:w-auto bg-transparent text-gray-700 border border-gray-300 px-8 py-3 rounded-md font-medium hover:bg-gray-50 transition-all text-center"
                   >
                     View Previous Events
@@ -105,32 +106,32 @@ const Speaker = () => {
       </section>
 
       {/* Achievements Section */}
-      <section className="bg-gray-50 py-12">
+      <section className="bg-gray-100 py-16 overflow-hidden">
         <div className="container mx-auto px-4">
-          <h3 className="text-3xl font-bold text-center mb-10">Professional Achievements</h3>
+          <h3 className="text-3xl font-bold text-center mb-12">Professional Achievements</h3>
 
           <div className="overflow-x-auto">
             <div className="flex space-x-6 animate-scroll">
               {[
                 {
                   logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Tata_Consultancy_Services_Logo.svg/2560px-Tata_Consultancy_Services_Logo.svg.png',
-                  text: 'Started as a software engineer and accomplished key milestones across top tech orgs.'
+                  text: 'Started as a software engineer and accomplished key milestones in top tech orgs.'
                 },
                 {
-                  logo: 'https://1000logos.net/wp-content/uploads/2021/04/PayPal-logo.png',
+                  logo: 'https://res.cloudinary.com/dhn6uszk0/image/upload/v1749720803/paypla-removebg-preview_xdhoum.png',
                   text: 'Worked as a Senior Consultant at PayPal.'
                 },
                 {
-                  logo: 'https://cdn-icons-png.flaticon.com/512/565/565547.png',
+                  logo: 'https://cdn-icons-png.flaticon.com/512/3159/3159066.png',
                   text: 'Invested in 2+ startups in Tamil Nadu.'
                 },
                 {
-                  logo: 'https://play-lh.googleusercontent.com/-NqM_YuXZVzg3IcZV2sbqS73n-lZtIkLjRaM1vYKUk2dGzH3j09xE3Ad8JkDj5v-j7A=w240-h480-rw',
-                  text: 'Served as CTO at Cookr, a food-tech startup.'
+                  logo: 'https://res.cloudinary.com/dhn6uszk0/image/upload/v1749720803/cookr-removebg-preview_vvvuis.png',
+                  text: 'Served as CTO at Cookr.'
                 },
                 {
-                  logo: 'https://noukha.in/_next/image?url=%2Flogo.png&w=96&q=75',
-                  text: 'Founder of Noukha Technologies, building AI-powered platforms.'
+                  logo: 'https://res.cloudinary.com/dhn6uszk0/image/upload/v1749721036/noukha_logo_pzv1pn.png',
+                  text: 'Founder of Noukha Technologies.'
                 }
               ].map((card, index) => (
                 <div key={index} className="bg-white min-w-[280px] max-w-xs p-6 rounded-xl shadow-md flex-shrink-0">
