@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Linkedin, Globe, TrendingUp } from 'lucide-react';
+import { Linkedin, Globe } from 'lucide-react';
+import './scroll.css'; // 👈 we'll create this file next
 
 const earlyCareerLogos = [
   'https://res.cloudinary.com/dhn6uszk0/image/upload/v1749726516/wipro-removebg-preview_dvnuhx.png',
@@ -36,7 +37,7 @@ const slides = [
     ]
   },
   {
-    title: 'Noukha Technologies',
+    title: 'Noukha Founder',
     description: 'Founded Noukha Technologies to help startups scale with custom software, AI, and full-stack innovation.',
     logos: [
       'https://res.cloudinary.com/dhn6uszk0/image/upload/v1749721036/noukha_logo_pzv1pn.png'
@@ -51,13 +52,13 @@ const Speaker = () => {
     const interval = setInterval(() => {
       setCurrentLogo((prev) => (prev + 1) % earlyCareerLogos.length);
     }, 1500);
-
     return () => clearInterval(interval);
   }, []);
 
   return (
     <section id="speaker" className="py-16 md:py-24 bg-white">
       <div className="container mx-auto px-4">
+
         {/* Speaker Info */}
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Meet Your Speaker</h2>
@@ -137,27 +138,23 @@ const Speaker = () => {
 
         {/* Achievements Section */}
         <div className="mt-24">
-          <h3 className="text-3xl font-bold text-center mb-10">Professional Experience</h3>
-          <div className="relative w-full overflow-hidden">
-            <div className="flex gap-6 w-max animate-scroll">
-              {[...slides, ...slides].map((slide, index) => (
+          <h3 className="text-3xl font-bold text-center mb-10">Achievements</h3>
+          <div className="overflow-hidden w-full">
+            <div className="flex gap-6 w-max scroll-slide">
+              {Array.from({ length: 4 }).flatMap(() => slides).map((slide, index) => (
                 <div key={index} className="min-w-[280px] max-w-[280px] bg-white p-6 rounded-xl shadow-md flex-shrink-0">
                   <div className="mb-4 flex justify-center">
-                    {slide.title === 'Startup Investments' ? (
-                      <div className="h-16 w-16 flex items-center justify-center text-[#179E42]">
-                        <TrendingUp size={32} />
-                      </div>
-                    ) : slide.isAnimated ? (
+                    {slide.isAnimated ? (
                       <img
                         src={slide.logos[currentLogo]}
-                        alt="Early Career Logo"
-                        className="h-16 w-16 object-contain transition-opacity duration-700"
+                        alt="Animated Logo"
+                        className="h-12 w-12 object-contain transition-opacity duration-700"
                       />
                     ) : (
                       <img
                         src={slide.logos[0]}
                         alt={slide.title}
-                        className="h-16 w-16 object-contain"
+                        className="h-12 w-12 object-contain"
                       />
                     )}
                   </div>
