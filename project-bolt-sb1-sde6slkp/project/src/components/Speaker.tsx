@@ -8,12 +8,12 @@ const Speaker = () => {
     {
       title: 'Early Career',
       description: 'Started as a software engineer and worked across top-tier firms building scalable tech platforms.',
-      logos: ['logo1.png', 'logo2.png', 'logo3.png'],
+      logos: ['https://res.cloudinary.com/dhn6uszk0/image/upload/v1749726516/wipro-removebg-preview_dvnuhx.png', 'https://res.cloudinary.com/dhn6uszk0/image/upload/v1749726516/thermo_fisher_mg5ltc.png', 'https://res.cloudinary.com/dhn6uszk0/image/upload/v1749726516/logo_u_next-removebg-preview_y4oa3z.png'],
     },
     {
       title: 'PayPal Experience',
       description: 'Served as a Senior Consultant at PayPal, contributing to their global product optimization and systems architecture.',
-      logos: ['paypal-logo.png'],
+      logos: ['https://res.cloudinary.com/dhn6uszk0/image/upload/v1749720803/paypla-removebg-preview_xdhoum.png'],
     },
     {
       title: 'Startup Investments',
@@ -23,12 +23,12 @@ const Speaker = () => {
     {
       title: 'Cookr CTO',
       description: 'Led product development and tech strategy as CTO of Cookr, a food-tech platform redefining home cooking.',
-      logos: ['cookr-logo.png'],
+      logos: ['https://res.cloudinary.com/dhn6uszk0/image/upload/v1749720803/cookr-removebg-preview_vvvuis.png'],
     },
     {
       title: 'Noukha Founder',
       description: 'Founded Noukha Technologies — empowering startups with AI-driven solutions, custom software, and scalable SaaS.',
-      logos: ['noukha-logo.png'],
+      logos: ['https://res.cloudinary.com/dhn6uszk0/image/upload/v1749721036/noukha_logo_pzv1pn.png'],
     }
   ];
 
