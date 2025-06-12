@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Linkedin, Globe } from 'lucide-react';
-import './scroll.css'; // 👈 we'll create this file next
+import { Linkedin, Globe, TrendingUp } from 'lucide-react';
 
 const earlyCareerLogos = [
   'https://res.cloudinary.com/dhn6uszk0/image/upload/v1749726516/wipro-removebg-preview_dvnuhx.png',
@@ -18,32 +17,27 @@ const slides = [
   {
     title: 'PayPal Experience',
     description: 'Served as a Senior Consultant at PayPal, contributing to global product optimization and systems architecture.',
-    logos: [
-      'https://res.cloudinary.com/dhn6uszk0/image/upload/v1749720803/paypla-removebg-preview_xdhoum.png'
-    ]
+    logos: ['https://res.cloudinary.com/dhn6uszk0/image/upload/v1749720803/paypla-removebg-preview_xdhoum.png']
   },
   {
     title: 'Startup Investments',
     description: 'Invested in 2+ early-stage startups in Tamil Nadu, focusing on tech-enabled growth and long-term scale.',
-    logos: [
-      'https://res.cloudinary.com/dhn6uszk0/image/upload/v1749726516/growth_lucid_logo_green_hzwrre.png'
-    ]
+    icons: [<TrendingUp key="icon" size={48} color="#179E42" />]
   },
   {
     title: 'Cookr CTO',
     description: 'Led product strategy and engineering as CTO at Cookr, building scalable food-tech systems from scratch.',
-    logos: [
-      'https://res.cloudinary.com/dhn6uszk0/image/upload/v1749720803/cookr-removebg-preview_vvvuis.png'
-    ]
+    logos: ['https://res.cloudinary.com/dhn6uszk0/image/upload/v1749720803/cookr-removebg-preview_vvvuis.png']
   },
   {
     title: 'Noukha Founder',
     description: 'Founded Noukha Technologies to help startups scale with custom software, AI, and full-stack innovation.',
-    logos: [
-      'https://res.cloudinary.com/dhn6uszk0/image/upload/v1749721036/noukha_logo_pzv1pn.png'
-    ]
+    logos: ['https://res.cloudinary.com/dhn6uszk0/image/upload/v1749721036/noukha_logo_pzv1pn.png']
   }
 ];
+
+// Extend the slides array to simulate 10+ slides for smooth looping
+const extendedSlides = Array(2).fill(slides).flat();
 
 const Speaker = () => {
   const [currentLogo, setCurrentLogo] = useState(0);
@@ -58,7 +52,6 @@ const Speaker = () => {
   return (
     <section id="speaker" className="py-16 md:py-24 bg-white">
       <div className="container mx-auto px-4">
-
         {/* Speaker Info */}
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Meet Your Speaker</h2>
@@ -90,13 +83,19 @@ const Speaker = () => {
                   <p className="text-[#179E42] font-medium">Founder, Noukha Technologies</p>
                 </div>
                 <div className="flex space-x-3">
-                  <a href="https://linkedin.com/in/ramanathan-alagappan" target="_blank" rel="noopener noreferrer"
+                  <a
+                    href="https://linkedin.com/in/ramanathan-alagappan"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-[#179E42] hover:text-white transition-colors"
                     aria-label="LinkedIn"
                   >
                     <Linkedin size={18} />
                   </a>
-                  <a href="https://noukha.in/" target="_blank" rel="noopener noreferrer"
+                  <a
+                    href="https://noukha.in/"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-[#179E42] hover:text-white transition-colors"
                     aria-label="Website"
                   >
@@ -125,10 +124,16 @@ const Speaker = () => {
               </div>
 
               <div className="flex flex-col sm:flex-row items-center gap-4">
-                <a href="#register" className="w-full sm:w-auto bg-[#179E42] text-white px-8 py-3 rounded-md font-medium hover:bg-[#0f7a31] transition-all text-center">
+                <a
+                  href="#register"
+                  className="w-full sm:w-auto bg-[#179E42] text-white px-8 py-3 rounded-md font-medium hover:bg-[#0f7a31] transition-all text-center"
+                >
                   Register Now
                 </a>
-                <a href="#gallery" className="w-full sm:w-auto bg-transparent text-gray-700 border border-gray-300 px-8 py-3 rounded-md font-medium hover:bg-gray-50 transition-all text-center">
+                <a
+                  href="#gallery"
+                  className="w-full sm:w-auto bg-transparent text-gray-700 border border-gray-300 px-8 py-3 rounded-md font-medium hover:bg-gray-50 transition-all text-center"
+                >
                   View Previous Events
                 </a>
               </div>
@@ -139,23 +144,28 @@ const Speaker = () => {
         {/* Achievements Section */}
         <div className="mt-24">
           <h3 className="text-3xl font-bold text-center mb-10">Achievements</h3>
-          <div className="overflow-hidden w-full">
-            <div className="flex gap-6 w-max scroll-slide">
-              {Array.from({ length: 4 }).flatMap(() => slides).map((slide, index) => (
-                <div key={index} className="min-w-[280px] max-w-[280px] bg-white p-6 rounded-xl shadow-md flex-shrink-0">
+          <div className="relative w-full overflow-hidden">
+            <div className="flex gap-6 w-max animate-scroll">
+              {extendedSlides.map((slide, index) => (
+                <div
+                  key={index}
+                  className="min-w-[280px] max-w-[280px] bg-white p-6 rounded-xl shadow-md flex-shrink-0"
+                >
                   <div className="mb-4 flex justify-center">
                     {slide.isAnimated ? (
                       <img
                         src={slide.logos[currentLogo]}
-                        alt="Animated Logo"
-                        className="h-12 w-12 object-contain transition-opacity duration-700"
+                        alt="Early Career Logo"
+                        className="h-14 w-14 object-contain transition-opacity duration-700"
                       />
-                    ) : (
+                    ) : slide.logos ? (
                       <img
                         src={slide.logos[0]}
                         alt={slide.title}
-                        className="h-12 w-12 object-contain"
+                        className="h-14 w-14 object-contain"
                       />
+                    ) : (
+                      slide.icons?.[0] || null
                     )}
                   </div>
                   <h4 className="text-lg font-semibold text-center mb-2">{slide.title}</h4>
