@@ -88,7 +88,7 @@ const Registration = () => {
 
               <div className="mb-8 bg-white/10 p-6 rounded-xl text-center">
                 <h3 className="font-bold text-2xl mb-2">
-                  <span className="line-through mr-4 text-gray-300">₹799/-</span>
+                  <span className="line-through mr-4 text-gray-300">₹999/-</span>
                   <span>₹99/-</span>
                 </h3>
                 <p className="text-white/80 mb-4">Grab your seat before the offer ends!</p>
@@ -96,7 +96,7 @@ const Registration = () => {
               </div>
 
               <div className="text-center">
-                <p className="mb-4 text-white/80">Scan & Pay ₹99</p>
+                <p className="mb-4 text-white/80">Scan & Pay ₹299</p>
                 <img
                   src="https://myonlinevipani.com/wp-content/uploads/2020/11/My-Online-Vipani-Google-Pay-QR-Code-300x300.jpg" // make sure this is correctly placed in your `public/` folder
                   alt="QR Code"
@@ -189,7 +189,7 @@ const Registration = () => {
                     type="submit"
                     className="w-full bg-[#179E42] text-white px-6 py-3 rounded-md font-medium hover:bg-[#0f7a31] transition-colors flex items-center justify-center"
                   >
-                    Register for Webinar ₹99/- <Send className="ml-2 h-5 w-5" />
+                    Register for Webinar ₹299/- <Send className="ml-2 h-5 w-5" />
                   </button>
                 </form>
               ) : (
