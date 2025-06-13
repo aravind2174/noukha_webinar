@@ -83,7 +83,7 @@ const Registration = () => {
             <div className="lg:w-1/2 bg-[#179E42] p-8 md:p-12 text-white flex flex-col justify-center">
               <h2 className="text-3xl md:text-4xl font-bold mb-6">Register Now</h2>
               <p className="text-white/90 text-lg mb-6">
-                Secure your spot for this exclusive paid webinar and take the first step toward leveraging AI for your future in tech and entrepreneurship.
+                Secure your spot for this exclusive paid Seminar and take the first step toward leveraging AI for your future in tech and entrepreneurship.
               </p>
 
               <div className="mb-8 bg-white/10 p-6 rounded-xl text-center">
