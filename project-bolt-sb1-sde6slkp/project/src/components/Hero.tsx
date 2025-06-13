@@ -27,7 +27,7 @@ const Hero = () => {
         <div className="flex flex-col md:flex-row items-center">
           <div className="md:w-1/2 md:pr-8 z-10">
             <div className="inline-block bg-black/10 px-4 py-1 rounded-full mb-4">
-              <span className="text-sm font-medium text-[#179E42]">Live Seminar • June 15, 2025</span>
+              <span className="text-sm font-medium text-[#179E42]">Live Workshop • June 15, 2025</span>
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-5xl font-bold leading-tight mb-6">
