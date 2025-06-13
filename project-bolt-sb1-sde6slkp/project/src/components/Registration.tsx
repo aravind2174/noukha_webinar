@@ -83,7 +83,7 @@ const Registration = () => {
             <div className="lg:w-1/2 bg-[#179E42] p-8 md:p-12 text-white flex flex-col justify-center">
               <h2 className="text-3xl md:text-4xl font-bold mb-6">Register Now</h2>
               <p className="text-white/90 text-lg mb-6">
-                Secure your spot for this exclusive paid Seminar and take the first step toward leveraging AI for your future in tech and entrepreneurship.
+                Secure your spot for this exclusive paid workshop and take the first step toward leveraging AI for your future in tech and entrepreneurship.
               </p>
 
               <div className="mb-8 bg-white/10 p-6 rounded-xl text-center">
@@ -189,7 +189,7 @@ const Registration = () => {
                     type="submit"
                     className="w-full bg-[#179E42] text-white px-6 py-3 rounded-md font-medium hover:bg-[#0f7a31] transition-colors flex items-center justify-center"
                   >
-                    Register for Seminar ₹299/- <Send className="ml-2 h-5 w-5" />
+                    Register for Workshop ₹299/- <Send className="ml-2 h-5 w-5" />
                   </button>
                 </form>
               ) : (
