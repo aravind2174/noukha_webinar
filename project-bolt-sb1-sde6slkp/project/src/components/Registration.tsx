@@ -189,7 +189,7 @@ const Registration = () => {
                     type="submit"
                     className="w-full bg-[#179E42] text-white px-6 py-3 rounded-md font-medium hover:bg-[#0f7a31] transition-colors flex items-center justify-center"
                   >
-                    Register for Webinar ₹299/- <Send className="ml-2 h-5 w-5" />
+                    Register for Seminar ₹299/- <Send className="ml-2 h-5 w-5" />
                   </button>
                 </form>
               ) : (
