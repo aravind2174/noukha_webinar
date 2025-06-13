@@ -89,7 +89,7 @@ const Registration = () => {
               <div className="mb-8 bg-white/10 p-6 rounded-xl text-center">
                 <h3 className="font-bold text-2xl mb-2">
                   <span className="line-through mr-4 text-gray-300">₹999/-</span>
-                  <span>₹99/-</span>
+                  <span>₹299/-</span>
                 </h3>
                 <p className="text-white/80 mb-4">Grab your seat before the offer ends!</p>
                 <div className="text-xl font-mono tracking-wide">{formatTime(timeLeft)}</div>
