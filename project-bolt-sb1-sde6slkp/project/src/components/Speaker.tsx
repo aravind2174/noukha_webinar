@@ -182,27 +182,26 @@ const Speaker = () => {
           <div className="grid gap-8 md:grid-cols-3">
             {[
               {
-                title: 'Part 1: Kickstart with AI & Tools',
+                title: 'Part 1: Learn the Foundation',
                 points: [
-                  'Understand the AI project lifecycle',
-                  'Explore no-code/low-code tools',
-                  'Project types that attract startups'
+                  'Understanding the AI Project Lifecycle',
+                  'Tools & Tech Stack to Get Started',
+                  'Interactive Q&A'
                 ]
               },
               {
-                title: 'Part 2: Live Build & Demo',
+                title: 'Part 2: Get Inspired with Ideas',
                 points: [
-                  'Build a real AI tool live',
-                  'Hands-on with OpenAI, Supabase, n8n',
-                  'Tips to scale & customize your project'
+                  'Project Ideas That Actually Work',
+                  'Project Ideas That Actually Work',
                 ]
               },
               {
-                title: 'Part 3: Stand Out & Showcase',
+                title: 'Part 3: Watch and Learn',
                 points: [
-                  'Portfolio best practices',
-                  'How to get noticed by recruiters',
-                  'Live Q&A and resource giveaway'
+                  'Building an AI Project in Real-Time',
+                  'How to Pitch What You Build',
+                  'Final Q&A + Takeaway Resource Pack'
                 ]
               }
             ].map((item, i) => (
