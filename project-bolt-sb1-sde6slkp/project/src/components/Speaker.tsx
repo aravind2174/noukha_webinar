@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Linkedin, Globe, TrendingUp, ChevronDown } from 'lucide-react';
-import clsx from 'clsx';
+const clsx = (...classes: (string | false | null | undefined)[]) => classes.filter(Boolean).join(' ');
 
 const roadmap = [
   {
