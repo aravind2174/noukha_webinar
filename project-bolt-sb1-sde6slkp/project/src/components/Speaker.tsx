@@ -36,9 +36,6 @@ const slides = [
   }
 ];
 
-// Extend the slides array to simulate 10+ slides for smooth looping
-const extendedSlides = Array(2).fill(slides).flat();
-
 const Speaker = () => {
   const [currentLogo, setCurrentLogo] = useState(0);
 
@@ -141,37 +138,46 @@ const Speaker = () => {
           </div>
         </div>
 
-        {/* Achievements Section */}
+        {/* Career Roadmap Section */}
         <div className="mt-24">
-          <h3 className="text-3xl font-bold text-center mb-10">Professional Experience</h3>
-          <div className="relative w-full overflow-hidden">
-            <div className="flex gap-6 w-max animate-scroll">
-              {extendedSlides.map((slide, index) => (
-                <div
-                  key={index}
-                  className="min-w-[280px] max-w-[280px] bg-white p-6 rounded-xl shadow-md flex-shrink-0"
-                >
-                  <div className="mb-4 flex justify-center">
-                    {slide.isAnimated ? (
-                      <img
-                        src={slide.logos[currentLogo]}
-                        alt="Early Career Logo"
-                        className="h-14 w-14 object-contain transition-opacity duration-700"
-                      />
-                    ) : slide.logos ? (
-                      <img
-                        src={slide.logos[0]}
-                        alt={slide.title}
-                        className="h-14 w-14 object-contain"
-                      />
-                    ) : (
-                      slide.icons?.[0] || null
-                    )}
+          <h3 className="text-3xl font-bold text-center mb-12">Career Roadmap</h3>
+          <div className="relative">
+            <div className="border-l-4 border-[#179E42] absolute left-1/2 transform -translate-x-1/2 h-full z-0"></div>
+            <div className="space-y-16 relative z-10">
+              {slides.map((step, index) => {
+                const isLeft = index % 2 === 0;
+                return (
+                  <div
+                    key={index}
+                    className={`flex flex-col md:flex-row items-center justify-between gap-8 ${
+                      isLeft ? 'md:flex-row' : 'md:flex-row-reverse'
+                    }`}
+                  >
+                    <div className="md:w-5/12 bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
+                      <div className="flex items-center gap-4 mb-4">
+                        {step.isAnimated ? (
+                          <img
+                            src={earlyCareerLogos[currentLogo]}
+                            alt="Career Logo"
+                            className="h-10 w-10 object-contain transition-opacity duration-700"
+                          />
+                        ) : step.logos ? (
+                          <img
+                            src={step.logos[0]}
+                            alt={step.title}
+                            className="h-10 w-10 object-contain"
+                          />
+                        ) : (
+                          step.icons?.[0] || null
+                        )}
+                        <h4 className="text-xl font-semibold">{step.title}</h4>
+                      </div>
+                      <p className="text-sm text-gray-600">{step.description}</p>
+                    </div>
+                    <div className="hidden md:block w-5 h-5 bg-[#179E42] rounded-full z-10 border-4 border-white shadow" />
                   </div>
-                  <h4 className="text-lg font-semibold text-center mb-2">{slide.title}</h4>
-                  <p className="text-sm text-gray-600 text-center">{slide.description}</p>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>
