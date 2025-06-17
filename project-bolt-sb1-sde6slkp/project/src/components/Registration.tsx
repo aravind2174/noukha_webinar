@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Send, Calendar, Clock, CheckCircle, UploadCloud } from 'lucide-react';
-import { supabase } from '../supabaseClient';  // 🔹 Make sure this is correct path
 
 const Registration = () => {
   const [formData, setFormData] = useState({
@@ -23,7 +22,7 @@ const Registration = () => {
       setTimeLeft(remaining);
     };
 
-    updateTimer(); 
+    updateTimer(); // initial call
     const interval = setInterval(updateTimer, 1000);
     return () => clearInterval(interval);
   }, []);
@@ -31,7 +30,7 @@ const Registration = () => {
   const formatTime = (seconds: number) => {
     const m = Math.floor(seconds / 60);
     const s = seconds % 60;
-    return `${m.toString().padStart(2, '0')}m ${s.toString().padStart(2, '0')}s`;
+    return ${m.toString().padStart(2, '0')}m ${s.toString().padStart(2, '0')}s;
   };
 
   const handleChange = (
@@ -44,35 +43,14 @@ const Registration = () => {
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     setSelectedFile(file || null);
+    // You will handle the upload separately using Supabase
     console.log("File selected for upload:", file);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    let imageUrl = '';
 
     try {
-      if (selectedFile) {
-        const fileExt = selectedFile.name.split('.').pop();
-        const fileName = `${Date.now()}.${fileExt}`;
-        const { data, error } = await supabase.storage
-          .from('payment-webinar')
-          .upload(fileName, selectedFile, {
-            cacheControl: '3600',
-            upsert: false,
-          });
-
-        if (error) {
-          console.error('Supabase upload error:', error);
-        } else {
-          const { data: publicURL } = supabase
-            .storage
-            .from('payment-webinar')
-            .getPublicUrl(fileName);
-          imageUrl = publicURL.publicUrl;
-        }
-      }
-
       await fetch(
         "https://script.google.com/macros/s/AKfycbxhH0OlLup8EpqJuJAqloxHwo5MSApxDHYLZlOGUVsGZq2vN4WdnBYlM6Rv0Du2YZpk/exec",
         {
@@ -86,15 +64,14 @@ const Registration = () => {
             email: formData.email,
             university: formData.university,
             learningGoal: formData.expectation,
-            paymentScreenshotUrl: imageUrl || "No screenshot uploaded",
           }),
         }
       );
 
       setIsSubmitted(true);
     } catch (error) {
-      console.error("Submission failed:", error);
       setIsSubmitted(true);
+      console.error("Submission failed:", error);
     }
   };
 
@@ -121,7 +98,7 @@ const Registration = () => {
               <div className="text-center">
                 <p className="mb-4 text-white/80">Scan & Pay ₹299</p>
                 <img
-                  src="https://myonlinevipani.com/wp-content/uploads/2020/11/My-Online-Vipani-Google-Pay-QR-Code-300x300.jpg"
+                  src="https://myonlinevipani.com/wp-content/uploads/2020/11/My-Online-Vipani-Google-Pay-QR-Code-300x300.jpg" // make sure this is correctly placed in your public/ folder
                   alt="QR Code"
                   className="mx-auto w-40 h-40 rounded-md border-2 border-white"
                 />
@@ -192,6 +169,7 @@ const Registration = () => {
                     ></textarea>
                   </div>
 
+                  {/* File Upload (handled separately) */}
                   <div>
                     <label className="block text-gray-700 font-medium mb-2">
                       Upload Payment Screenshot
