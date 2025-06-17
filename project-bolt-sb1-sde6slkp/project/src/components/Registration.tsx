@@ -50,7 +50,7 @@ const Registration = () => {
 
     try {
       await fetch(
-        'https://script.google.com/macros/s/AKfycbxhH0OlLup8EpqJuJAqloxHwo5MSApxDHYLZlOGUVsGZq2vN4WdnBYlM6Rv0Du2YZpk/exec',
+        'https://script.google.com/macros/s/AKfycbwtnp0B0jOBb0A9-7xgcPi42djNkl6wITs0Z1rlMcA7SokQ7t5sIhlA_puUMlksN3o4/exec',
         {
           method: 'POST',
           mode: 'no-cors',
@@ -78,7 +78,7 @@ const Registration = () => {
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col lg:flex-row items-stretch shadow-xl rounded-xl overflow-hidden">
             <div className="lg:w-1/2 bg-[#179E42] p-8 md:p-12 text-white">
-              <img src="/logo.svg" alt="Noukha Logo" className="w-32 mb-6" />
+              <img src="https://res.cloudinary.com/dhn6uszk0/image/upload/v1750150365/black_noukh_svg_smahn3.svg" alt="Noukha Logo" className="w-32 mb-6" />
               <h2 className="text-3xl md:text-4xl font-bold mb-6">Register Now</h2>
               <p className="text-white/90 text-lg mb-6">
                 Secure your spot for this exclusive paid workshop and take the first step toward leveraging AI for your future in tech and entrepreneurship.
