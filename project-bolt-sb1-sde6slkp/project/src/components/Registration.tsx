@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Send, Calendar, Clock, CheckCircle, UploadCloud } from 'lucide-react';
-import { supabase } from './utils/supabaseClient'; // 🔹 Make sure this is correct path
+import { supabase } from '../supabaseClient';  // 🔹 Make sure this is correct path
 
 const Registration = () => {
   const [formData, setFormData] = useState({
