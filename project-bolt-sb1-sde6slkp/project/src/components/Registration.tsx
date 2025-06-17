@@ -50,7 +50,7 @@ const Registration = () => {
 
     try {
       await fetch(
-        'https://script.google.com/macros/s/AKfycbwtnp0B0jOBb0A9-7xgcPi42djNkl6wITs0Z1rlMcA7SokQ7t5sIhlA_puUMlksN3o4/exec',
+        'https://script.google.com/macros/s/AKfycbzp1S5Og5cdrFfzrQnwpteYWkl4n27AumTQ6RUQaAObZOLQ7wpLWRotuFQn-kxKTPtC/exec',
         {
           method: 'POST',
           mode: 'no-cors',
