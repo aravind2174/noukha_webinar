@@ -20,7 +20,7 @@ const Registration = () => {
     e.preventDefault();
     try {
       await fetch(
-        'https://script.google.com/macros/s/AKfycbxhH0OlLup8EpqJuJAqloxHwo5MSApxDHYLZlOGUVsGZq2vN4WdnBYlM6Rv0Du2YZpk/exec',
+        'https://script.google.com/macros/s/AKfycbxZvNzs4KsHxd2DJLgAYsUO25XOkO11DeWGqbYtcdROLVO0sHKAwT1NcpOBh-CDr_9l/exec',
         {
           method: 'POST',
           mode: 'no-cors',
