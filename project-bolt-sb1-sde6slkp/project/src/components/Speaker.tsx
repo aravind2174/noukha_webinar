@@ -1,216 +1,128 @@
 import React, { useState } from 'react';
-import { Linkedin, Globe, TrendingUp, ChevronDown } from 'lucide-react';
-const clsx = (...classes: (string | false | null | undefined)[]) => classes.filter(Boolean).join(' ');
+import { Lightbulb, Rocket, Users, Trophy } from 'lucide-react';
 
-const roadmap = [
+const careerData = [
   {
-    title: 'Early Career',
-    description: 'Started as a software engineer and worked across top-tier firms building scalable tech platforms.',
-    logo: 'https://res.cloudinary.com/dhn6uszk0/image/upload/v1749726516/wipro-removebg-preview_dvnuhx.png'
+    id: 1,
+    year: '2014',
+    title: 'Strategic Analyst',
+    company: 'TechThink',
+    description: 'Worked on tech-led transformation strategies for early-stage businesses.',
+    icon: <Lightbulb className="w-6 h-6" />,
+    position: { x: 10, y: 20 },
   },
   {
-    title: 'PayPal Experience',
-    description: 'Served as a Senior Consultant at PayPal, contributing to global product optimization and systems architecture.',
-    logo: 'https://res.cloudinary.com/dhn6uszk0/image/upload/v1749720803/paypla-removebg-preview_xdhoum.png'
+    id: 2,
+    year: '2017',
+    title: 'Startup Mentor',
+    company: 'LaunchX',
+    description: 'Guided student teams in building AI-powered MVPs for real-world problems.',
+    icon: <Users className="w-6 h-6" />,
+    position: { x: 30, y: 45 },
   },
   {
-    title: 'Startup Investments',
-    description: 'Invested in 2+ early-stage startups in Tamil Nadu, focusing on tech-enabled growth and long-term scale.',
-    logo: null,
-    icon: <TrendingUp key="icon" size={48} color="#179E42" />
+    id: 3,
+    year: '2020',
+    title: 'Founder',
+    company: 'Noukha Technologies',
+    description: 'Founded a product-first agency helping startups build scalable, growth-ready platforms.',
+    icon: <Rocket className="w-6 h-6" />,
+    position: { x: 65, y: 30 },
   },
   {
-    title: 'Cookr CTO',
-    description: 'Led product strategy and engineering as CTO at Cookr, building scalable food-tech systems from scratch.',
-    logo: 'https://res.cloudinary.com/dhn6uszk0/image/upload/v1749720803/cookr-removebg-preview_vvvuis.png'
+    id: 4,
+    year: '2024',
+    title: 'Ecosystem Enabler',
+    company: 'AI Startup Network',
+    description: 'Runs workshops and sessions for students/startups to accelerate GTM for AI-powered SaaS products.',
+    icon: <Trophy className="w-6 h-6" />,
+    position: { x: 90, y: 55 },
   },
-  {
-    title: 'Noukha Founder',
-    description: 'Founded Noukha Technologies to help startups scale with custom software, AI, and full-stack innovation.',
-    logo: 'https://res.cloudinary.com/dhn6uszk0/image/upload/v1749721036/noukha_logo_pzv1pn.png'
-  }
 ];
 
+const createSmoothCurvedPath = () => {
+  if (careerData.length === 0) return '';
+  let path = `M ${careerData[0].position.x} ${careerData[0].position.y}`;
+  for (let i = 1; i < careerData.length; i++) {
+    const prev = careerData[i - 1];
+    const curr = careerData[i];
+    const dx = curr.position.x - prev.position.x;
+    const dy = curr.position.y - prev.position.y;
+    const cp1x = prev.position.x + dx * 0.5;
+    const cp1y = prev.position.y + dy * 0.2;
+    const cp2x = curr.position.x - dx * 0.5;
+    const cp2y = curr.position.y - dy * 0.2;
+    path += ` C ${cp1x} ${cp1y}, ${cp2x} ${cp2y}, ${curr.position.x} ${curr.position.y}`;
+  }
+  return path;
+};
+
 const Speaker = () => {
-  const [openIndex, setOpenIndex] = useState(null);
-  const toggleIndex = (index) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
+  const [activeId, setActiveId] = useState<number | null>(null);
 
   return (
-    <section id="speaker" className="py-16 md:py-24 bg-white">
-      <div className="container mx-auto px-4">
+    <section className="relative z-10 px-6 md:px-10 py-16 text-gray-900">
+      {/* SPEAKER INFO */}
+      <div className="text-center max-w-4xl mx-auto mb-16">
+        <h1 className="text-4xl md:text-5xl font-bold text-gray-900">Meet Our Speaker</h1>
+        <p className="mt-6 text-lg md:text-xl text-gray-700 leading-relaxed">
+          Ramanathan Alagappan is a leading voice in digital innovation and entrepreneurship, known for transforming early ideas into scalable tech ventures. With 12+ years of experience and a background in engineering and strategy, he has guided numerous students and startups in building future-ready businesses.
+          <br className="hidden md:block" /><br />
+          As the founder of Noukha Technologies, Ramanathan blends product thinking with growth marketing, making him a go-to mentor for students eager to turn their AI-powered ideas into impactful startups.
+        </p>
+      </div>
 
-        {/* Speaker Info */}
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Meet Your Speaker</h2>
-          <p className="text-lg text-gray-700">
-            Learn from an industry expert with extensive experience in AI and startup ecosystems.
-          </p>
-        </div>
+      {/* CAREER ROADMAP */}
+      <div className="relative h-[500px] w-full mb-20">
+        <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <path
+            d={createSmoothCurvedPath()}
+            stroke="#e5e7eb"
+            strokeWidth="0.6"
+            fill="none"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
 
-        <div className="flex flex-col lg:flex-row items-center gap-12">
-          <div className="lg:w-1/3">
-            <div className="relative">
-              <div className="w-64 h-64 md:w-80 md:h-80 bg-gray-200 rounded-2xl overflow-hidden">
-                <img
-                  src="https://media.licdn.com/dms/image/v2/C5603AQFgt_AwglQ4-g/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1620322854177?e=1754524800&v=beta&t=Y19kZ4m9yTL1jMLhvwN0iJ2N5zgbAtziz3KHbaO7iiI"
-                  alt="Ramanathan Alagappan"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-[#179E42]/10 rounded-2xl -z-10"></div>
-              <div className="absolute -top-6 -left-6 w-24 h-24 bg-black/10 rounded-2xl -z-10"></div>
-            </div>
-          </div>
-
-          <div className="lg:w-2/3">
-            <div className="bg-white p-8 rounded-xl shadow-md">
-              <div className="flex items-start justify-between mb-6">
-                <div>
-                  <h3 className="text-2xl font-bold">Ramanathan Alagappan</h3>
-                  <p className="text-[#179E42] font-medium">Founder, Noukha Technologies</p>
-                </div>
-                <div className="flex space-x-3">
-                  <a
-                    href="https://linkedin.com/in/ramanathan-alagappan"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-[#179E42] hover:text-white transition-colors"
-                    aria-label="LinkedIn"
-                  >
-                    <Linkedin size={18} />
-                  </a>
-                  <a
-                    href="https://noukha.in/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-[#179E42] hover:text-white transition-colors"
-                    aria-label="Website"
-                  >
-                    <Globe size={18} />
-                  </a>
-                </div>
-              </div>
-
-              <p className="text-gray-700 mb-4">
-                Ramanathan is a digital innovator with 12+ years of experience in product development, startup strategy, and AI implementation. He’s mentored 1000+ students and worked with leading firms and emerging startups alike.
-              </p>
-
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                <div className="bg-gray-50 p-4 rounded-lg">
-                  <p className="text-sm text-gray-500">Experience</p>
-                  <p className="font-bold">12+ Years</p>
-                </div>
-                <div className="bg-gray-50 p-4 rounded-lg">
-                  <p className="text-sm text-gray-500">Startups Invested</p>
-                  <p className="font-bold">2+</p>
-                </div>
-                <div className="bg-gray-50 p-4 rounded-lg">
-                  <p className="text-sm text-gray-500">Students Mentored</p>
-                  <p className="font-bold">1000+</p>
-                </div>
-              </div>
-
-              <div className="flex flex-col sm:flex-row items-center gap-4">
-                <a
-                  href="#register"
-                  className="w-full sm:w-auto bg-[#179E42] text-white px-8 py-3 rounded-md font-medium hover:bg-[#0f7a31] transition-all text-center"
-                >
-                  Register Now
-                </a>
-                <a
-                  href="#gallery"
-                  className="w-full sm:w-auto bg-transparent text-gray-700 border border-gray-300 px-8 py-3 rounded-md font-medium hover:bg-gray-50 transition-all text-center"
-                >
-                  View Previous Events
-                </a>
+        {careerData.map((point) => (
+          <div
+            key={point.id}
+            className="absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer group text-center"
+            style={{ left: `${point.position.x}%`, top: `${point.position.y}%` }}
+            onClick={() => setActiveId(activeId === point.id ? null : point.id)}
+          >
+            <div
+              className={`w-16 h-16 rounded-full bg-white border-4 flex items-center justify-center shadow-md transition-all ${
+                activeId === point.id ? 'border-green-500 scale-110' : 'border-gray-300'
+              }`}
+            >
+              <div className={`transition-colors ${activeId === point.id ? 'text-green-600' : 'text-gray-700'}`}>
+                {point.icon}
               </div>
             </div>
-          </div>
-        </div>
-
-        {/* Replacing Achievements with Career Roadmap */}
-        <div className="mt-24">
-          <h3 className="text-3xl font-bold text-center mb-10">Career Roadmap</h3>
-          <div className="relative">
-            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 h-full w-2 bg-[#179E42]/30 rounded-full z-0"></div>
-            <div className="space-y-16 relative z-10">
-              {roadmap.map((item, index) => {
-                const isLeft = index % 2 === 0;
-                const isOpen = openIndex === index;
-                return (
-                  <div key={index} className={clsx('flex flex-col md:flex-row items-center md:items-start gap-4 relative', isLeft ? 'md:flex-row-reverse' : '')}>
-                    <div className="w-full md:w-1/2 flex justify-center md:justify-end">
-                      <div
-                        className="cursor-pointer bg-white p-4 rounded-xl border shadow hover:shadow-lg transition"
-                        onClick={() => toggleIndex(index)}
-                      >
-                        <div className="flex items-center gap-4">
-                          {item.logo ? (
-                            <img src={item.logo} alt={item.title} className="w-14 h-14 object-contain" />
-                          ) : (
-                            item.icon
-                          )}
-                          <h4 className="text-lg font-semibold">{item.title}</h4>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="w-1/2 hidden md:block">
-                      <div className="w-5 h-5 bg-[#179E42] rounded-full absolute top-4 left-1/2 transform -translate-x-1/2 z-20"></div>
-                    </div>
-                    {isOpen && (
-                      <div className="mt-4 w-full md:w-1/2 mx-auto text-gray-600 text-sm bg-gray-50 p-4 rounded-md shadow-inner transition-all duration-300 ease-in-out">
-                        {item.description}
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-
-        {/* Agenda Section */}
-        <div className="mt-24">
-          <h3 className="text-3xl font-bold text-center mb-10">Agenda</h3>
-          <div className="grid gap-8 md:grid-cols-3">
-            {[
-              {
-                title: 'Part 1: Learn the Foundation',
-                points: [
-                  'Understanding the AI Project Lifecycle',
-                  'Tools & Tech Stack to Get Started',
-                  'Interactive Q&A'
-                ]
-              },
-              {
-                title: 'Part 2: Get Inspired with Ideas',
-                points: [
-                  'Project Ideas That Actually Work',
-                  'Project Ideas That Actually Work',
-                ]
-              },
-              {
-                title: 'Part 3: Watch and Learn',
-                points: [
-                  'Building an AI Project in Real-Time',
-                  'How to Pitch What You Build',
-                  'Final Q&A + Takeaway Resource Pack'
-                ]
-              }
-            ].map((item, i) => (
-              <div key={i} className="bg-gray-50 p-6 rounded-xl shadow hover:shadow-md transition">
-                <h4 className="text-[#179E42] font-semibold text-xl mb-3">{item.title}</h4>
-                <ul className="list-disc list-inside text-sm text-gray-700 space-y-2">
-                  {item.points.map((point, idx) => (
-                    <li key={idx}>{point}</li>
-                  ))}
-                </ul>
+            <div className="mt-2 font-semibold text-sm">{point.year}</div>
+            {activeId === point.id && (
+              <div className="mt-4 w-72 mx-auto bg-white p-5 rounded-xl border shadow-lg text-left animate-in fade-in duration-200">
+                <h3 className="text-lg font-bold">{point.title}</h3>
+                <p className="text-green-600 font-medium mb-2">{point.company}</p>
+                <p className="text-sm text-gray-700">{point.description}</p>
               </div>
-            ))}
+            )}
           </div>
-        </div>
+        ))}
+      </div>
+
+      {/* AGENDA SECTION */}
+      <div className="bg-gray-50 rounded-3xl p-10">
+        <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">Webinar Agenda</h2>
+        <ul className="space-y-6 max-w-3xl mx-auto text-gray-700 text-lg">
+          <li>🚀 Introduction to the AI Project Lifecycle</li>
+          <li>🛠️ Tools & Tech Stack for Building Real Projects</li>
+          <li>💡 Mini AI Project Ideas with Real-World Relevance</li>
+          <li>📣 How to Showcase Projects to Startups & Recruiters</li>
+          <li>🧠 Live Demo: Build an AI Project from Scratch</li>
+        </ul>
       </div>
     </section>
   );
