@@ -22,7 +22,7 @@ const Registration = () => {
       setTimeLeft(remaining);
     };
 
-    updateTimer(); // initial call
+    updateTimer();
     const interval = setInterval(updateTimer, 1000);
     return () => clearInterval(interval);
   }, []);
@@ -30,7 +30,7 @@ const Registration = () => {
   const formatTime = (seconds: number) => {
     const m = Math.floor(seconds / 60);
     const s = seconds % 60;
-    return ${m.toString().padStart(2, '0')}m ${s.toString().padStart(2, '0')}s;
+    return `${m.toString().padStart(2, '0')}m ${s.toString().padStart(2, '0')}s`;
   };
 
   const handleChange = (
@@ -43,7 +43,6 @@ const Registration = () => {
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     setSelectedFile(file || null);
-    // You will handle the upload separately using Supabase
     console.log("File selected for upload:", file);
   };
 
@@ -98,7 +97,7 @@ const Registration = () => {
               <div className="text-center">
                 <p className="mb-4 text-white/80">Scan & Pay ₹299</p>
                 <img
-                  src="https://myonlinevipani.com/wp-content/uploads/2020/11/My-Online-Vipani-Google-Pay-QR-Code-300x300.jpg" // make sure this is correctly placed in your public/ folder
+                  src="https://myonlinevipani.com/wp-content/uploads/2020/11/My-Online-Vipani-Google-Pay-QR-Code-300x300.jpg"
                   alt="QR Code"
                   className="mx-auto w-40 h-40 rounded-md border-2 border-white"
                 />
@@ -169,7 +168,6 @@ const Registration = () => {
                     ></textarea>
                   </div>
 
-                  {/* File Upload (handled separately) */}
                   <div>
                     <label className="block text-gray-700 font-medium mb-2">
                       Upload Payment Screenshot
