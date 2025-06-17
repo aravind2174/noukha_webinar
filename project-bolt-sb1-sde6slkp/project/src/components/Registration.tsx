@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Send, UploadCloud, CheckCircle } from 'lucide-react';
+import { Send, CheckCircle } from 'lucide-react';
 
 const Registration = () => {
   const [formData, setFormData] = useState({
@@ -10,7 +10,6 @@ const Registration = () => {
     expectation: '',
   });
   const [timeLeft, setTimeLeft] = useState(0);
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
   const isSuccess = window.location.search.includes('success=true');
 
@@ -40,28 +39,17 @@ const Registration = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    setSelectedFile(file || null);
-  };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     try {
       await fetch(
-        'https://script.google.com/macros/s/AKfycbxFQjHCpGIfFAdguaJjxl1m89FYg6pKeJqsuYOZufck42nAa0gPcMi2jwBojR4bGtha/exec',
+        'https://script.google.com/macros/s/AKfycbzsl4hd4UwhO0aoha1sYcy4_8O6kOgQ_7KOhGrtEYqW5QTAVh6WQZ2N2WzD72XPxn4/exec',
         {
           method: 'POST',
           mode: 'no-cors',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            fullName: formData.name,
-            email: formData.email,
-            phone: formData.phone,
-            university: formData.university,
-            learningGoal: formData.expectation,
-          }),
+          body: JSON.stringify(formData),
         }
       );
 
@@ -78,7 +66,11 @@ const Registration = () => {
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col lg:flex-row items-stretch shadow-xl rounded-xl overflow-hidden">
             <div className="lg:w-1/2 bg-[#179E42] p-8 md:p-12 text-white">
-              <img src="https://res.cloudinary.com/dhn6uszk0/image/upload/v1750150365/black_noukh_svg_smahn3.svg" alt="Noukha Logo" className="w-32 mb-6" />
+              <img
+                src="https://res.cloudinary.com/dhn6uszk0/image/upload/v1750150365/black_noukh_svg_smahn3.svg"
+                alt="Noukha Logo"
+                className="w-32 mb-6"
+              />
               <h2 className="text-3xl md:text-4xl font-bold mb-6">Register Now</h2>
               <p className="text-white/90 text-lg mb-6">
                 Secure your spot for this exclusive paid workshop and take the first step toward leveraging AI for your future in tech and entrepreneurship.
@@ -98,7 +90,7 @@ const Registration = () => {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
                     <label htmlFor="name" className="block text-gray-700 font-medium mb-2">
-                      Full Name
+                      Name
                     </label>
                     <input
                       type="text"
@@ -108,13 +100,13 @@ const Registration = () => {
                       onChange={handleChange}
                       required
                       className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#179E42]"
-                      placeholder="Your full name"
+                      placeholder="Your name"
                     />
                   </div>
 
                   <div>
                     <label htmlFor="email" className="block text-gray-700 font-medium mb-2">
-                      Email Address
+                      Email
                     </label>
                     <input
                       type="email"
@@ -124,13 +116,13 @@ const Registration = () => {
                       onChange={handleChange}
                       required
                       className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#179E42]"
-                      placeholder="Your email address"
+                      placeholder="Your email"
                     />
                   </div>
 
                   <div>
                     <label htmlFor="phone" className="block text-gray-700 font-medium mb-2">
-                      Phone Number
+                      Phone
                     </label>
                     <input
                       type="text"
@@ -146,7 +138,7 @@ const Registration = () => {
 
                   <div>
                     <label htmlFor="university" className="block text-gray-700 font-medium mb-2">
-                      University/Institution
+                      University
                     </label>
                     <input
                       type="text"
@@ -155,7 +147,7 @@ const Registration = () => {
                       value={formData.university}
                       onChange={handleChange}
                       className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#179E42]"
-                      placeholder="Your university or institution"
+                      placeholder="Your university"
                     />
                   </div>
 
